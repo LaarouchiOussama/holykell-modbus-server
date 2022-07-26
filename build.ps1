@@ -1,2 +1,2 @@
 mvn install -DskipTests
-docker build -t modbus-server .
+docker build -t hathoute/exprom-modbus-server .
