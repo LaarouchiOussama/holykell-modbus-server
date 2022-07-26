@@ -1,0 +1,3107 @@
+[
+    {
+        "id": "878b6763749c9533",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b3c80c359564a418",
+        "type": "tab",
+        "label": "Dashboard - Admin",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b083defed2b702cd",
+        "type": "tab",
+        "label": "Dashboard - Home",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "31bab14440ce4b94",
+        "type": "subflow",
+        "name": "Subflow 1",
+        "info": "",
+        "in": [
+            {
+                "x": 60,
+                "y": 40,
+                "wires": [
+                    {
+                        "id": "2a799441389a3954"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 420,
+                "y": 300,
+                "wires": [
+                    {
+                        "id": "b220f5123d2a0373",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "2e9c7c2682f8105f",
+        "type": "subflow",
+        "name": "Subflow 2",
+        "info": "",
+        "in": [
+            {
+                "x": 40,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "7bff0151d54726d0"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 380,
+                "y": 200,
+                "wires": [
+                    {
+                        "id": "d28002238f9791c1",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "8f38e90d94322287",
+        "type": "subflow",
+        "name": "Subflow 3",
+        "info": "",
+        "in": [
+            {
+                "x": 80,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "e74dc90c9d9b70b6"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 320,
+                "y": 340,
+                "wires": [
+                    {
+                        "id": "710d6f3ed952fbab",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "c876840e77a362e4",
+        "type": "subflow",
+        "name": "Subflow 4",
+        "info": "",
+        "in": [
+            {
+                "x": 40,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "61a52780b4204d14"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 460,
+                "y": 280,
+                "wires": [
+                    {
+                        "id": "2c9c5c78e389cf9e",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "4a75068ae4cbef61",
+        "type": "subflow",
+        "name": "Subflow 5",
+        "info": "",
+        "in": [
+            {
+                "x": 240,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "7798db73785c9c4b"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 320,
+                "y": 280,
+                "wires": [
+                    {
+                        "id": "a2a259a9fbfd695d",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "ccc2db95d82dbaa2",
+        "type": "MySQLdatabase",
+        "name": "Modbus RTU",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "modbus_rtu",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "f09e6f56b6d746d8",
+        "type": "ui_tab",
+        "name": "Admin",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "a4b289cf5c92a747",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "bb8b1aabc692c722",
+        "type": "ui_group",
+        "name": "Devices",
+        "tab": "f09e6f56b6d746d8",
+        "order": 1,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0be9f06923bac14b",
+        "type": "ui_group",
+        "name": "Device editor",
+        "tab": "f09e6f56b6d746d8",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "193b3b74700bd762",
+        "type": "ui_group",
+        "name": "Create device",
+        "tab": "f09e6f56b6d746d8",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7c32f24ca33f02c1",
+        "type": "ui_group",
+        "name": "Metrics",
+        "tab": "f09e6f56b6d746d8",
+        "order": 4,
+        "disp": true,
+        "width": "16",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b8630066.5d446",
+        "type": "ui_group",
+        "name": "One dimension Array",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "072c1c701f924ff8",
+        "type": "ui_spacer",
+        "z": "b3c80c359564a418",
+        "name": "spacer",
+        "group": "bb8b1aabc692c722",
+        "order": 2,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "3a137b709c80c851",
+        "type": "ui_spacer",
+        "z": "b3c80c359564a418",
+        "name": "spacer",
+        "group": "bb8b1aabc692c722",
+        "order": 4,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "f0b9fb73e5df6503",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "958ed828fd55f748",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "f0b9fb73e5df6503",
+        "order": 1,
+        "disp": false,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "22a3bb5453dc4bf6",
+        "type": "ui_spacer",
+        "z": "b083defed2b702cd",
+        "name": "spacer",
+        "group": "958ed828fd55f748",
+        "order": 1,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "8c9001894420eac7",
+        "type": "ui_spacer",
+        "z": "b083defed2b702cd",
+        "name": "spacer",
+        "group": "958ed828fd55f748",
+        "order": 3,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "905ca5eca7c00e3c",
+        "type": "ui_spacer",
+        "z": "b083defed2b702cd",
+        "name": "spacer",
+        "group": "958ed828fd55f748",
+        "order": 4,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "2aa8f720ee529a75",
+        "type": "ui_spacer",
+        "z": "b083defed2b702cd",
+        "name": "spacer",
+        "group": "958ed828fd55f748",
+        "order": 6,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "4638911e6a96cb13",
+        "type": "ui_spacer",
+        "z": "b083defed2b702cd",
+        "name": "spacer",
+        "group": "958ed828fd55f748",
+        "order": 7,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "a272c34e8b38aa12",
+        "type": "ui_spacer",
+        "z": "b083defed2b702cd",
+        "name": "spacer",
+        "group": "958ed828fd55f748",
+        "order": 9,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "a0d59484deccfaca",
+        "type": "ui_spacer",
+        "z": "b083defed2b702cd",
+        "name": "spacer",
+        "group": "958ed828fd55f748",
+        "order": 10,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "ec9b2ace7029340c",
+        "type": "ui_spacer",
+        "z": "b083defed2b702cd",
+        "name": "spacer",
+        "group": "958ed828fd55f748",
+        "order": 11,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "27a062d0677c4131",
+        "type": "ui_spacer",
+        "z": "b083defed2b702cd",
+        "name": "spacer",
+        "group": "958ed828fd55f748",
+        "order": 12,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "6ba55cd87bd751c3",
+        "type": "ui_spacer",
+        "z": "b083defed2b702cd",
+        "name": "spacer",
+        "group": "958ed828fd55f748",
+        "order": 13,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "b98ce5a4b14bba48",
+        "type": "ui_spacer",
+        "z": "b083defed2b702cd",
+        "name": "spacer",
+        "group": "958ed828fd55f748",
+        "order": 14,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "659a9cb6d51ab308",
+        "type": "ui_spacer",
+        "z": "b083defed2b702cd",
+        "name": "spacer",
+        "group": "958ed828fd55f748",
+        "order": 15,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "79b5185542139605",
+        "type": "ui_spacer",
+        "z": "b083defed2b702cd",
+        "name": "spacer",
+        "group": "958ed828fd55f748",
+        "order": 16,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "312ec4357091402d",
+        "type": "ui_spacer",
+        "z": "b083defed2b702cd",
+        "name": "spacer",
+        "group": "958ed828fd55f748",
+        "order": 17,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "6824d04ffc90f465",
+        "type": "ui_spacer",
+        "z": "b083defed2b702cd",
+        "name": "spacer",
+        "group": "958ed828fd55f748",
+        "order": 18,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "6f5d1e1037c2a7e5",
+        "type": "ui_spacer",
+        "z": "b083defed2b702cd",
+        "name": "spacer",
+        "group": "958ed828fd55f748",
+        "order": 19,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "e31edb2be81f0c2e",
+        "type": "template",
+        "z": "31bab14440ce4b94",
+        "name": "Select metric",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "SELECT * FROM metrics WHERE device_id = {{payload.id}};",
+        "output": "str",
+        "x": 190,
+        "y": 140,
+        "wires": [
+            [
+                "63c4607a0fed544b"
+            ]
+        ]
+    },
+    {
+        "id": "63c4607a0fed544b",
+        "type": "mysql",
+        "z": "31bab14440ce4b94",
+        "mydb": "ccc2db95d82dbaa2",
+        "name": "Modbus RTU",
+        "x": 190,
+        "y": 200,
+        "wires": [
+            [
+                "b220f5123d2a0373"
+            ]
+        ]
+    },
+    {
+        "id": "b220f5123d2a0373",
+        "type": "function",
+        "z": "31bab14440ce4b94",
+        "name": "Add metric to device metrics",
+        "func": "let dbMetrics = msg.payload;\nif(dbMetrics.length > 0) {\n    let metrics = global.get(\"metrics\");\n    metrics[dbMetrics[0].device_id] = dbMetrics;\n    global.set(\"metrics\", metrics);\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2a799441389a3954",
+        "type": "function",
+        "z": "31bab14440ce4b94",
+        "name": "Initialize global.metrics[deviceId]",
+        "func": "let metrics = global.get(\"metrics\");\nmetrics[msg.payload.id] = [];\nglobal.set(\"metrics\", metrics);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 80,
+        "wires": [
+            [
+                "e31edb2be81f0c2e"
+            ]
+        ]
+    },
+    {
+        "id": "669672f40a556f78",
+        "type": "mysql",
+        "z": "2e9c7c2682f8105f",
+        "mydb": "ccc2db95d82dbaa2",
+        "name": "Modbus RTU",
+        "x": 190,
+        "y": 140,
+        "wires": [
+            [
+                "d28002238f9791c1"
+            ]
+        ]
+    },
+    {
+        "id": "7bff0151d54726d0",
+        "type": "template",
+        "z": "2e9c7c2682f8105f",
+        "name": "Select all devices",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "SELECT * FROM devices",
+        "output": "str",
+        "x": 210,
+        "y": 80,
+        "wires": [
+            [
+                "669672f40a556f78"
+            ]
+        ]
+    },
+    {
+        "id": "d28002238f9791c1",
+        "type": "change",
+        "z": "2e9c7c2682f8105f",
+        "name": "Set global.devices",
+        "rules": [
+            {
+                "t": "set",
+                "p": "devices",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "metrics",
+                "pt": "global",
+                "to": "{}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 210,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "710d6f3ed952fbab",
+        "type": "ui_button",
+        "z": "8f38e90d94322287",
+        "name": "Save",
+        "group": "0be9f06923bac14b",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Save",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "currentDevice",
+        "payloadType": "flow",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 190,
+        "y": 340,
+        "wires": [
+            [
+                "311e8bdeabefe9e3"
+            ]
+        ]
+    },
+    {
+        "id": "595e81ee67ec0b9c",
+        "type": "ui_button",
+        "z": "8f38e90d94322287",
+        "name": "Cancel",
+        "group": "0be9f06923bac14b",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Cancel",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 200,
+        "y": 300,
+        "wires": [
+            [
+                "311e8bdeabefe9e3"
+            ]
+        ]
+    },
+    {
+        "id": "e62a3253fe0a3666",
+        "type": "ui_ui_control",
+        "z": "8f38e90d94322287",
+        "name": "",
+        "events": "all",
+        "x": 660,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "36a5dc2cd3a549c3",
+        "type": "template",
+        "z": "8f38e90d94322287",
+        "name": "Show editor query",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "plain",
+        "template": "{\n   \"group\":{\n      \"show\":[\n         \"Admin_Device_editor\"\n      ],\n      \"focus\":true\n   }\n}",
+        "output": "json",
+        "x": 470,
+        "y": 80,
+        "wires": [
+            [
+                "e62a3253fe0a3666"
+            ]
+        ]
+    },
+    {
+        "id": "e74dc90c9d9b70b6",
+        "type": "function",
+        "z": "8f38e90d94322287",
+        "name": "Select device",
+        "func": "msg.payload = msg.payload.device;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 80,
+        "wires": [
+            [
+                "36a5dc2cd3a549c3",
+                "9f2c5528793c9544",
+                "abd6cd23b499c5df",
+                "8a186b204fd0ccbf"
+            ]
+        ]
+    },
+    {
+        "id": "311e8bdeabefe9e3",
+        "type": "template",
+        "z": "8f38e90d94322287",
+        "name": "Hide editor query",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "plain",
+        "template": "{\n   \"group\":{\n      \"hide\":[\n         \"Admin_Device_editor\"\n      ]\n   }\n}",
+        "output": "json",
+        "x": 470,
+        "y": 300,
+        "wires": [
+            [
+                "e62a3253fe0a3666"
+            ]
+        ]
+    },
+    {
+        "id": "e6e94ca5f1abd6b6",
+        "type": "ui_text_input",
+        "z": "8f38e90d94322287",
+        "name": "Name",
+        "label": "Name",
+        "tooltip": "",
+        "group": "0be9f06923bac14b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "name",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 190,
+        "y": 200,
+        "wires": [
+            [
+                "8a186b204fd0ccbf"
+            ]
+        ]
+    },
+    {
+        "id": "147b2e01dfef2c50",
+        "type": "ui_text_input",
+        "z": "8f38e90d94322287",
+        "name": "Serial Id",
+        "label": "Serial Id",
+        "tooltip": "",
+        "group": "0be9f06923bac14b",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "serial_id",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 400,
+        "y": 200,
+        "wires": [
+            [
+                "8a186b204fd0ccbf"
+            ]
+        ]
+    },
+    {
+        "id": "9f2c5528793c9544",
+        "type": "template",
+        "z": "8f38e90d94322287",
+        "name": "Device name",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.name}}",
+        "output": "str",
+        "x": 210,
+        "y": 140,
+        "wires": [
+            [
+                "e6e94ca5f1abd6b6"
+            ]
+        ]
+    },
+    {
+        "id": "abd6cd23b499c5df",
+        "type": "template",
+        "z": "8f38e90d94322287",
+        "name": "Serial Id",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.serial_id}}",
+        "output": "str",
+        "x": 400,
+        "y": 140,
+        "wires": [
+            [
+                "147b2e01dfef2c50"
+            ]
+        ]
+    },
+    {
+        "id": "8a186b204fd0ccbf",
+        "type": "function",
+        "z": "8f38e90d94322287",
+        "name": "Update copied object",
+        "func": "if(typeof msg.payload === \"string\") {\n    let currentDevice = flow.get(\"currentDevice\");\n    currentDevice[msg.topic] = msg.payload;\n}\nelse {\n    let copy = JSON.parse(JSON.stringify(msg.payload));\n    flow.set(\"currentDevice\", copy);\n}",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "6a35b909a94740e5",
+        "type": "template",
+        "z": "c876840e77a362e4",
+        "name": "Hide editor query",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "plain",
+        "template": "{\n   \"group\":{\n      \"hide\":[\n         \"Admin_Device_editor\"\n      ]\n   }\n}",
+        "output": "json",
+        "x": 410,
+        "y": 80,
+        "wires": [
+            [
+                "84cdc7c0aff4bd2c"
+            ]
+        ]
+    },
+    {
+        "id": "84cdc7c0aff4bd2c",
+        "type": "ui_ui_control",
+        "z": "c876840e77a362e4",
+        "name": "",
+        "events": "all",
+        "x": 600,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0738a6b83d4a762d",
+        "type": "ui_toast",
+        "z": "c876840e77a362e4",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "Proceed",
+        "cancel": "Cancel",
+        "raw": true,
+        "className": "",
+        "topic": "Delete device?",
+        "name": "Delete confirmation",
+        "x": 250,
+        "y": 180,
+        "wires": [
+            [
+                "9503f8563badba5e"
+            ]
+        ]
+    },
+    {
+        "id": "e7d96784f2f9b497",
+        "type": "template",
+        "z": "c876840e77a362e4",
+        "name": "Notification message",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "You are about to delete <b>{{payload.name}}</b>.<br/>\nYou cannot undo this action.",
+        "output": "str",
+        "x": 260,
+        "y": 140,
+        "wires": [
+            [
+                "0738a6b83d4a762d"
+            ]
+        ]
+    },
+    {
+        "id": "9503f8563badba5e",
+        "type": "switch",
+        "z": "c876840e77a362e4",
+        "name": "If proceed",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Proceed",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 220,
+        "y": 220,
+        "wires": [
+            [
+                "2c9c5c78e389cf9e"
+            ]
+        ]
+    },
+    {
+        "id": "61a52780b4204d14",
+        "type": "change",
+        "z": "c876840e77a362e4",
+        "name": "Select device",
+        "rules": [
+            {
+                "t": "set",
+                "p": "selectedDevice",
+                "pt": "flow",
+                "to": "payload.device",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.device",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 190,
+        "y": 80,
+        "wires": [
+            [
+                "e7d96784f2f9b497",
+                "6a35b909a94740e5"
+            ]
+        ]
+    },
+    {
+        "id": "2c9c5c78e389cf9e",
+        "type": "change",
+        "z": "c876840e77a362e4",
+        "name": "Set device to payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "selectedDevice",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a2a259a9fbfd695d",
+        "type": "ui_button",
+        "z": "4a75068ae4cbef61",
+        "name": "Create",
+        "group": "193b3b74700bd762",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Create",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "newDevice",
+        "payloadType": "flow",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 190,
+        "y": 280,
+        "wires": [
+            [
+                "0fea4a97f127b886"
+            ]
+        ]
+    },
+    {
+        "id": "90a737eb8dc0b64f",
+        "type": "ui_button",
+        "z": "4a75068ae4cbef61",
+        "name": "Cancel",
+        "group": "193b3b74700bd762",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Cancel",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 200,
+        "y": 240,
+        "wires": [
+            [
+                "0fea4a97f127b886"
+            ]
+        ]
+    },
+    {
+        "id": "587f636bd83866e9",
+        "type": "ui_ui_control",
+        "z": "4a75068ae4cbef61",
+        "name": "",
+        "events": "all",
+        "x": 680,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7798db73785c9c4b",
+        "type": "template",
+        "z": "4a75068ae4cbef61",
+        "name": "Show creator query",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "plain",
+        "template": "{\n   \"group\":{\n      \"show\":[\n         \"Admin_Create_device\"\n      ],\n      \"focus\":true\n   }\n}",
+        "output": "json",
+        "x": 410,
+        "y": 80,
+        "wires": [
+            [
+                "587f636bd83866e9"
+            ]
+        ]
+    },
+    {
+        "id": "0fea4a97f127b886",
+        "type": "template",
+        "z": "4a75068ae4cbef61",
+        "name": "Hide editor query",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "plain",
+        "template": "{\n   \"group\":{\n      \"hide\":[\n         \"Admin_Create_device\"\n      ]\n   }\n}",
+        "output": "json",
+        "x": 470,
+        "y": 240,
+        "wires": [
+            [
+                "587f636bd83866e9"
+            ]
+        ]
+    },
+    {
+        "id": "984f4889262136b1",
+        "type": "ui_text_input",
+        "z": "4a75068ae4cbef61",
+        "name": "Name",
+        "label": "Name",
+        "tooltip": "",
+        "group": "193b3b74700bd762",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "name",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 190,
+        "y": 140,
+        "wires": [
+            [
+                "a88f60e78c1ffc81"
+            ]
+        ]
+    },
+    {
+        "id": "bec6b86c5c080a55",
+        "type": "ui_text_input",
+        "z": "4a75068ae4cbef61",
+        "name": "Serial Id",
+        "label": "Serial Id",
+        "tooltip": "",
+        "group": "193b3b74700bd762",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "serial_id",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 400,
+        "y": 140,
+        "wires": [
+            [
+                "a88f60e78c1ffc81"
+            ]
+        ]
+    },
+    {
+        "id": "a88f60e78c1ffc81",
+        "type": "function",
+        "z": "4a75068ae4cbef61",
+        "name": "Update new object",
+        "func": "let newDevice = flow.get(\"newDevice\");\nif(!newDevice) {\n    newDevice = {};\n}\n\nnewDevice[msg.topic] = msg.payload;\nflow.set(\"newDevice\", newDevice);",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "646c56ad039ebd23",
+        "type": "inject",
+        "z": "878b6763749c9533",
+        "name": "bootstrapper",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 540,
+        "wires": [
+            [
+                "b74615c10b0fe742"
+            ]
+        ]
+    },
+    {
+        "id": "b98a97d2eb647a3b",
+        "type": "split",
+        "z": "878b6763749c9533",
+        "name": "Foreach device",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 260,
+        "y": 660,
+        "wires": [
+            [
+                "602ee785ee7390ed"
+            ]
+        ]
+    },
+    {
+        "id": "602ee785ee7390ed",
+        "type": "subflow:31bab14440ce4b94",
+        "z": "878b6763749c9533",
+        "name": "Grab metrics for device",
+        "env": [],
+        "x": 330,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b74615c10b0fe742",
+        "type": "subflow:2e9c7c2682f8105f",
+        "z": "878b6763749c9533",
+        "name": "Grab devices",
+        "env": [],
+        "x": 250,
+        "y": 600,
+        "wires": [
+            [
+                "b98a97d2eb647a3b",
+                "c3128f275866a38b"
+            ]
+        ]
+    },
+    {
+        "id": "c3128f275866a38b",
+        "type": "link call",
+        "z": "878b6763749c9533",
+        "name": "Devices initialized call",
+        "links": [
+            "0966e1d7bd05f1bf"
+        ],
+        "timeout": "30",
+        "x": 560,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "29bfb15c34912cd2",
+        "type": "catch",
+        "z": "878b6763749c9533",
+        "name": "Ignore timeout",
+        "scope": [
+            "c3128f275866a38b"
+        ],
+        "uncaught": false,
+        "x": 530,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0966e1d7bd05f1bf",
+        "type": "link in",
+        "z": "b3c80c359564a418",
+        "name": "Devices initialized",
+        "links": [],
+        "x": 255,
+        "y": 60,
+        "wires": [
+            [
+                "048a275e8270bdc9",
+                "143177aa755e7c73",
+                "83eb9773ba0b4c41",
+                "e17220f18ad47e47"
+            ]
+        ]
+    },
+    {
+        "id": "048a275e8270bdc9",
+        "type": "function",
+        "z": "b3c80c359564a418",
+        "name": "Format device list",
+        "func": "const toListEntry = device => {\n    return {\n        title: `${device.name} (${device.serial_id})`,\n        menu: [\"Edit\", \"Delete\"],\n        device: device,\n    };\n}\n\nconst devices = global.get(\"devices\");\nmsg.payload = devices.map(toListEntry);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 140,
+        "wires": [
+            [
+                "14643bc5237c88ee"
+            ]
+        ]
+    },
+    {
+        "id": "14643bc5237c88ee",
+        "type": "ui_list",
+        "z": "b3c80c359564a418",
+        "group": "bb8b1aabc692c722",
+        "name": "Devices list",
+        "order": 1,
+        "width": 10,
+        "height": 4,
+        "lineType": "one",
+        "actionType": "menu",
+        "allowHTML": false,
+        "outputs": 1,
+        "topic": "",
+        "x": 410,
+        "y": 200,
+        "wires": [
+            [
+                "6c07113c271932c7"
+            ]
+        ]
+    },
+    {
+        "id": "6c07113c271932c7",
+        "type": "switch",
+        "z": "b3c80c359564a418",
+        "name": "Switch device operation",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "jsonata_exp",
+                "v": "payload.selected = \"Edit\"",
+                "vt": "jsonata"
+            },
+            {
+                "t": "jsonata_exp",
+                "v": "payload.selected = \"Delete\"",
+                "vt": "jsonata"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 450,
+        "y": 260,
+        "wires": [
+            [
+                "6e59da39c71e3775"
+            ],
+            [
+                "04aa64e0f93648af"
+            ]
+        ]
+    },
+    {
+        "id": "36b12d556c6cd5ce",
+        "type": "template",
+        "z": "b3c80c359564a418",
+        "name": "Update device query",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "UPDATE devices \nSET name = :name, serial_id = :serial_id \nWHERE id = :id; ",
+        "output": "str",
+        "x": 480,
+        "y": 400,
+        "wires": [
+            [
+                "2ceb56b3b4496856"
+            ]
+        ]
+    },
+    {
+        "id": "143177aa755e7c73",
+        "type": "template",
+        "z": "b3c80c359564a418",
+        "name": "Hide editors query",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "plain",
+        "template": "{\n   \"group\":{\n      \"hide\":[\n         \"Admin_Device_editor\",\n         \"Admin_Create_device\"\n      ]\n   }\n}",
+        "output": "json",
+        "x": 430,
+        "y": 60,
+        "wires": [
+            [
+                "b46e77ae3ff2696b"
+            ]
+        ]
+    },
+    {
+        "id": "b46e77ae3ff2696b",
+        "type": "ui_ui_control",
+        "z": "b3c80c359564a418",
+        "name": "",
+        "events": "all",
+        "x": 620,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6e59da39c71e3775",
+        "type": "subflow:8f38e90d94322287",
+        "z": "b3c80c359564a418",
+        "name": "Device edit",
+        "env": [],
+        "x": 450,
+        "y": 320,
+        "wires": [
+            [
+                "d3655877030987e6"
+            ]
+        ]
+    },
+    {
+        "id": "4c51ada416cb3372",
+        "type": "template",
+        "z": "b3c80c359564a418",
+        "name": "Delete device query",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "DELETE FROM devices WHERE id = :id;",
+        "output": "str",
+        "x": 780,
+        "y": 400,
+        "wires": [
+            [
+                "c1406ccb9c8c18d8"
+            ]
+        ]
+    },
+    {
+        "id": "04aa64e0f93648af",
+        "type": "subflow:c876840e77a362e4",
+        "z": "b3c80c359564a418",
+        "name": "Device delete",
+        "env": [],
+        "x": 760,
+        "y": 320,
+        "wires": [
+            [
+                "89e68c7632fc9a09"
+            ]
+        ]
+    },
+    {
+        "id": "8819209d6507463b",
+        "type": "ui_button",
+        "z": "b3c80c359564a418",
+        "name": "Add device",
+        "group": "bb8b1aabc692c722",
+        "order": 3,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "Add a device",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1030,
+        "y": 260,
+        "wires": [
+            [
+                "450cba084e5c176a"
+            ]
+        ]
+    },
+    {
+        "id": "2535916a0f614948",
+        "type": "template",
+        "z": "b3c80c359564a418",
+        "name": "Insert device query",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "INSERT INTO devices(name, serial_id) VALUES(:name, :serial_id);",
+        "output": "str",
+        "x": 1090,
+        "y": 400,
+        "wires": [
+            [
+                "b1f4ea09987c8e44"
+            ]
+        ]
+    },
+    {
+        "id": "b1f4ea09987c8e44",
+        "type": "mysql",
+        "z": "b3c80c359564a418",
+        "mydb": "ccc2db95d82dbaa2",
+        "name": "",
+        "x": 1070,
+        "y": 440,
+        "wires": [
+            [
+                "51031a988a43af3a"
+            ]
+        ]
+    },
+    {
+        "id": "51031a988a43af3a",
+        "type": "function",
+        "z": "b3c80c359564a418",
+        "name": "Update global.devices",
+        "func": "const result = msg.payload;\n\nconst newDevice = flow.get(\"addedDevice\");\nnewDevice['id'] = result.insertId;\n\nconst devices = global.get(\"devices\");\ndevices.push(newDevice);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1100,
+        "y": 480,
+        "wires": [
+            [
+                "726b6a9e77790552"
+            ]
+        ]
+    },
+    {
+        "id": "a7c59751d7e1b648",
+        "type": "link in",
+        "z": "b3c80c359564a418",
+        "name": "Devices updated",
+        "links": [],
+        "x": 255,
+        "y": 120,
+        "wires": [
+            [
+                "048a275e8270bdc9",
+                "83eb9773ba0b4c41",
+                "aa62815eabec1272"
+            ]
+        ]
+    },
+    {
+        "id": "726b6a9e77790552",
+        "type": "link call",
+        "z": "b3c80c359564a418",
+        "name": "",
+        "links": [
+            "a7c59751d7e1b648"
+        ],
+        "timeout": "0",
+        "x": 1090,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2ceb56b3b4496856",
+        "type": "mysql",
+        "z": "b3c80c359564a418",
+        "mydb": "ccc2db95d82dbaa2",
+        "name": "",
+        "x": 450,
+        "y": 440,
+        "wires": [
+            [
+                "a26f71a8793ac514"
+            ]
+        ]
+    },
+    {
+        "id": "c1406ccb9c8c18d8",
+        "type": "mysql",
+        "z": "b3c80c359564a418",
+        "mydb": "ccc2db95d82dbaa2",
+        "name": "",
+        "x": 750,
+        "y": 440,
+        "wires": [
+            [
+                "8217cb1f46866cf9"
+            ]
+        ]
+    },
+    {
+        "id": "a26f71a8793ac514",
+        "type": "function",
+        "z": "b3c80c359564a418",
+        "name": "Update global.devices",
+        "func": "const result = msg.payload;\n\nconst editedDevice = flow.get(\"editedDevice\");\n\nlet devices = global.get(\"devices\");\nfor(let i = 0; i < devices.length; i++) {\n    if(devices[i].id === editedDevice.id) {\n        devices[i] = editedDevice;\n        break;\n    }\n}\nglobal.set(\"devices\", devices);\n\nmsg.payload = [editedDevice, devices];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 480,
+        "wires": [
+            [
+                "764cdbea0661f3e5"
+            ]
+        ]
+    },
+    {
+        "id": "764cdbea0661f3e5",
+        "type": "link call",
+        "z": "b3c80c359564a418",
+        "name": "",
+        "links": [
+            "a7c59751d7e1b648"
+        ],
+        "timeout": "0",
+        "x": 470,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8217cb1f46866cf9",
+        "type": "function",
+        "z": "b3c80c359564a418",
+        "name": "Update global.devices",
+        "func": "const result = msg.payload;\n\nconst deletedDevice = flow.get(\"deletedDevice\");\n\nlet devices = global.get(\"devices\");\nlet filtered = devices.filter(device => device.id !== deletedDevice.id);\nglobal.set(\"devices\", filtered);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 480,
+        "wires": [
+            [
+                "df4f6cb1d0201523"
+            ]
+        ]
+    },
+    {
+        "id": "df4f6cb1d0201523",
+        "type": "link call",
+        "z": "b3c80c359564a418",
+        "name": "",
+        "links": [
+            "a7c59751d7e1b648"
+        ],
+        "timeout": "0",
+        "x": 770,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c2dbfdab004a4071",
+        "type": "catch",
+        "z": "b3c80c359564a418",
+        "name": "Ignore timeouts",
+        "scope": [
+            "726b6a9e77790552",
+            "764cdbea0661f3e5",
+            "df4f6cb1d0201523",
+            "abe2dae2fee59945",
+            "987f05e55b270a48",
+            "ffd9d8248d5ad565"
+        ],
+        "uncaught": false,
+        "x": 820,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d3655877030987e6",
+        "type": "change",
+        "z": "b3c80c359564a418",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "editedDevice",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 360,
+        "wires": [
+            [
+                "36b12d556c6cd5ce"
+            ]
+        ]
+    },
+    {
+        "id": "89e68c7632fc9a09",
+        "type": "change",
+        "z": "b3c80c359564a418",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "deletedDevice",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 360,
+        "wires": [
+            [
+                "4c51ada416cb3372"
+            ]
+        ]
+    },
+    {
+        "id": "b568c6ca3cc685f0",
+        "type": "change",
+        "z": "b3c80c359564a418",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "addedDevice",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1100,
+        "y": 360,
+        "wires": [
+            [
+                "2535916a0f614948"
+            ]
+        ]
+    },
+    {
+        "id": "450cba084e5c176a",
+        "type": "subflow:4a75068ae4cbef61",
+        "z": "b3c80c359564a418",
+        "name": "Device add",
+        "env": [],
+        "x": 1070,
+        "y": 320,
+        "wires": [
+            [
+                "b568c6ca3cc685f0"
+            ]
+        ]
+    },
+    {
+        "id": "e92b278caf9be5b1",
+        "type": "ui_dropdown",
+        "z": "b3c80c359564a418",
+        "name": "Select device",
+        "label": "",
+        "tooltip": "",
+        "place": "Select device",
+        "group": "7c32f24ca33f02c1",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "",
+                "value": "",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 390,
+        "y": 680,
+        "wires": [
+            [
+                "42884f92cf81e684"
+            ]
+        ]
+    },
+    {
+        "id": "83eb9773ba0b4c41",
+        "type": "function",
+        "z": "b3c80c359564a418",
+        "name": "Format devices for dropdown",
+        "func": "const toKeyValue = device => {\n    let kv = {};\n    kv[device.name] = device;\n    return kv;\n}\n\nconst devices = global.get(\"devices\");\nmsg.options = devices.map(toKeyValue);\nmsg.payload = null;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 620,
+        "wires": [
+            [
+                "e92b278caf9be5b1"
+            ]
+        ]
+    },
+    {
+        "id": "3deb47d80254ffe7",
+        "type": "ui_template",
+        "z": "b3c80c359564a418",
+        "group": "7c32f24ca33f02c1",
+        "name": "Metrics table",
+        "order": 2,
+        "width": 16,
+        "height": 10,
+        "format": "<script>\n    this.scope.value = \"hello world\";\n    // or overwrite value in your callback function ...\n    this.scope.action = (action, metric) => ({\n        action: action,\n        metric: metric\n    });\n</script>\n\n<style>\n.input-num {\n    width: 3rem;\n}\n\n.action-btn {\n    height: 36px !important;\n    margin-top: 0px !important;\n    margin-right: 5px !important;\n    margin-left: 5px !important;\n}\n</style>\n\n<table id=\"table\" border=\"1\">\n    <tr>\n        <th>Name</th>\n        <th>Slave id</th>\n        <th>Function code</th>\n        <th>Rg start</th>\n        <th>Format</th>\n        <th>Order</th>\n        <th>Refresh rate</th>\n        <th></th>\n    </tr>\n    <tbody>\n    <tr ng-repeat=\"row in msg.payload.metric\">\n        <td><input ng-model=\"row.name\"/></td>\n        <td><input class=\"input-num\" type=\"number\" ng-model=\"row.slave_id\"/></td>\n        <td><input class=\"input-num\" type=\"number\" ng-model=\"row.function_code\"/></td>\n        <td><input class=\"input-num\" type=\"number\" ng-model=\"row.register_start\"/></td>\n        <td>\n            <select name=\"data_format\" ng-model=\"row.data_format\">\n                <option ng-repeat=\"(format, size) in msg.payload.dataFormats\">{{format}}</option>\n            </select>\n        </td>\n        <td>\n            <select name=\"byte_order\" ng-model=\"row.byte_order\">\n                <option ng-repeat=\"order in msg.payload.byteOrder[msg.payload.dataFormats[row.data_format]]\">{{order}}</option>\n            </select>\n        </td>\n        <td><input class=\"input-num\" type=\"number\" ng-model=\"row.refresh_rate\"/></td>\n        <td>\n            <div style=\"display: flex;\">\n                <md-button class=\"action-btn\" ng-click=\"send({payload:action('edit', row)})\">Edit</md-button>\n                <md-button class=\"action-btn\" ng-click=\"send({payload:action('delete', row)})\">Delete</md-button>\n            </div>\n        </td>\n    </tr>\n    <tr>        \n        <td><input ng-model=\"msg.payload.new.name\"/></td>\n        <td><input class=\"input-num\" type=\"number\" ng-model=\"msg.payload.new.slave_id\"/></td>\n        <td><input class=\"input-num\" type=\"number\" ng-model=\"msg.payload.new.function_code\"/></td>\n        <td><input class=\"input-num\" type=\"number\" ng-model=\"msg.payload.new.register_start\"/></td>\n        <td>\n            <select name=\"data_format\" ng-model=\"msg.payload.new.data_format\">\n                <option ng-repeat=\"(format, size) in msg.payload.dataFormats\">{{format}}</option>\n            </select>\n        </td>\n        <td>\n            <select name=\"byte_order\" ng-model=\"msg.payload.new.byte_order\">\n                <option ng-repeat=\"order in msg.payload.byteOrder[msg.payload.dataFormats[msg.payload.new.data_format]]\">{{order}}</option>\n            </select>\n        </td>\n        <td><input class=\"input-num\" type=\"number\" ng-model=\"msg.payload.new.refresh_rate\"/></td>\n        <td>\n            <md-button class=\"action-btn\" ng-click=\"send({payload:action('create', msg.payload.new)})\">Create</md-button>\n        </td>\n    </tr>\n    </tbody>\n</table>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 390,
+        "y": 840,
+        "wires": [
+            [
+                "24d5d91ec4498b5e"
+            ]
+        ]
+    },
+    {
+        "id": "61a4371b5c975289",
+        "type": "function",
+        "z": "b3c80c359564a418",
+        "name": "Select metrics for device",
+        "func": "const device = flow.get(\"metrics.selectedDevice\");\nconst metrics = global.get(\"metrics\");\nmsg.payload = metrics[device.id];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 760,
+        "wires": [
+            [
+                "46a87124efe7acc3"
+            ]
+        ]
+    },
+    {
+        "id": "46a87124efe7acc3",
+        "type": "function",
+        "z": "b3c80c359564a418",
+        "name": "Setup variables for template",
+        "func": "let payload = {};\npayload.metric = msg.payload;\npayload.dataFormats = {\n    \"int16\": 2,\n    \"uint16\": 2,\n    \"int32\": 4,\n    \"uint32\": 4,\n    \"float32\": 4,\n    \"float64\": 8,\n}\npayload.byteOrder = {\n    2: [\"AB\", \"BA\"],\n    4: [\"ABCD\", \"CDAB\", \"BADC\", \"DCBA\"],\n    8: [\"ABCDEFGH\", \"GHEFCDAB\", \"BADCFEHG\", \"HGFEDCBA\"]\n}\npayload.device = flow.get(\"metrics.selectedDevice\");\npayload.new = {};\n\nconst metricConsts = {\n    dataFormats: payload.dataFormats,\n    byteOrder: payload.byteOrder\n};\n\nflow.set(\"metricConsts\", metricConsts);\n\nmsg.payload = payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 800,
+        "wires": [
+            [
+                "3deb47d80254ffe7"
+            ]
+        ]
+    },
+    {
+        "id": "24d5d91ec4498b5e",
+        "type": "function",
+        "z": "b3c80c359564a418",
+        "name": "Metric validation",
+        "func": "const metricConsts = flow.get(\"metricConsts\");\nconst metric = msg.payload.metric;\n\nconst skeleton = {\n    \"name\": {\n        \"type\": \"string\",\n        \"validator\": (name, obj) => {\n            if(name.length < 3 || name.length > 64) {\n                throw new Error(\"Name length must be 3 to 64 characters.\")\n            }\n        }\n    },\n    \"slave_id\": {\n        \"type\": \"number\",\n        \"validator\": (slaveId, obj) => {\n            if(slaveId < 1 || slaveId > 255) {\n                throw new Error(\"Slave ID must be in range [1,255]\")\n            }\n        }\n    },\n    \"function_code\": {\n        \"type\": \"number\",\n        \"validator\": (code, obj) => {\n            if(code !== 3) {\n                throw new Error(\"Only function code 3 (Read Registers) is implemented\")\n            }\n        }\n    },\n    \"register_start\": {\n        \"type\": \"number\",\n        \"validator\": (reg, obj) => {\n            if(reg < 1 || reg > 10000) {\n                throw new Error(\"Register start must be in range [1, 10000].\");\n            }\n        }\n    },\n    \"data_format\": {\n        \"type\": \"string\",\n        \"validator\": (format, obj) => true    // Handled by the <select>\n    },\n    \"byte_order\": {\n        \"type\": \"string\",\n        \"validator\": (order, obj) => {\n            const dataSize = metricConsts.dataFormats[obj.data_format];\n            const orders = metricConsts.byteOrder[dataSize];\n            if(!(orders.includes(order))) {\n                throw new Error(\"Invalid order \" + order + \", must be in \" + orders);\n            }\n        }\n    },\n    \"refresh_rate\": {\n        \"type\": \"number\",\n        \"validator\": (rate, obj) => {\n            if(rate < 1) {\n                throw new Error(\"Refresh rate must be a positive non-zero number\");\n            }\n        }\n    }\n}\n\n\nfor (const key in skeleton) {\n    if(metric[key] == undefined) {\n        throw new Error(\"Field \" + key + \" must have a value\");\n    }\n    \n    if(typeof metric[key] !== skeleton[key].type) {\n        throw new Error(\"Type mismatch for field \" + key \n            + \". Expected: \" + skeleton[key].type + \", found: \" \n            + typeof metric[key]);\n    }\n    \n    skeleton[key].validator(metric[key], metric);\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 900,
+        "wires": [
+            [
+                "8e44473d8653a473"
+            ]
+        ]
+    },
+    {
+        "id": "b97ff80a7905ab1c",
+        "type": "catch",
+        "z": "b3c80c359564a418",
+        "name": "Catch validation error",
+        "scope": [
+            "24d5d91ec4498b5e"
+        ],
+        "uncaught": false,
+        "x": 760,
+        "y": 840,
+        "wires": [
+            [
+                "c1f5ae32a9a7ff2d"
+            ]
+        ]
+    },
+    {
+        "id": "f3b06481f08497c5",
+        "type": "ui_toast",
+        "z": "b3c80c359564a418",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "Error",
+        "name": "",
+        "x": 740,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "c1f5ae32a9a7ff2d",
+        "type": "change",
+        "z": "b3c80c359564a418",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "error.message",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 880,
+        "wires": [
+            [
+                "f3b06481f08497c5"
+            ]
+        ]
+    },
+    {
+        "id": "8e44473d8653a473",
+        "type": "switch",
+        "z": "b3c80c359564a418",
+        "name": "Switch action",
+        "property": "payload.action",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "edit",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "delete",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "create",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "x": 410,
+        "y": 960,
+        "wires": [
+            [
+                "e68eafbd57c6e6e5"
+            ],
+            [
+                "efde3052bd9152dd"
+            ],
+            [
+                "97530bebf759d9a3"
+            ]
+        ]
+    },
+    {
+        "id": "e68eafbd57c6e6e5",
+        "type": "change",
+        "z": "b3c80c359564a418",
+        "name": "Select metric",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.metric",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "metric.edited",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 1020,
+        "wires": [
+            [
+                "39ed62250fb30d6c"
+            ]
+        ]
+    },
+    {
+        "id": "39ed62250fb30d6c",
+        "type": "template",
+        "z": "b3c80c359564a418",
+        "name": "Update metric query",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "UPDATE metrics\nSET slave_id=:slave_id, function_code=:function_code,\n    register_start=:register_start, data_format=:data_format,\n    byte_order=:byte_order, refresh_rate=:refresh_rate,\n    name=:name\nWHERE id=:id",
+        "output": "str",
+        "x": 460,
+        "y": 1060,
+        "wires": [
+            [
+                "31ce15657e7d21a0"
+            ]
+        ]
+    },
+    {
+        "id": "31ce15657e7d21a0",
+        "type": "mysql",
+        "z": "b3c80c359564a418",
+        "mydb": "ccc2db95d82dbaa2",
+        "name": "",
+        "x": 430,
+        "y": 1100,
+        "wires": [
+            [
+                "888a30bc0fbf3eab"
+            ]
+        ]
+    },
+    {
+        "id": "efde3052bd9152dd",
+        "type": "change",
+        "z": "b3c80c359564a418",
+        "name": "Select metric",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.metric",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "metric.deleted",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 1020,
+        "wires": [
+            [
+                "46b88273527e512a"
+            ]
+        ]
+    },
+    {
+        "id": "46b88273527e512a",
+        "type": "template",
+        "z": "b3c80c359564a418",
+        "name": "Delete metric query",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "DELETE FROM metrics WHERE id=:id",
+        "output": "str",
+        "x": 710,
+        "y": 1060,
+        "wires": [
+            [
+                "b34dc9a78e460d7c"
+            ]
+        ]
+    },
+    {
+        "id": "b34dc9a78e460d7c",
+        "type": "mysql",
+        "z": "b3c80c359564a418",
+        "mydb": "ccc2db95d82dbaa2",
+        "name": "",
+        "x": 690,
+        "y": 1100,
+        "wires": [
+            [
+                "bfe81167321bcf9d"
+            ]
+        ]
+    },
+    {
+        "id": "97530bebf759d9a3",
+        "type": "change",
+        "z": "b3c80c359564a418",
+        "name": "Select metric",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.metric",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.device_id",
+                "pt": "msg",
+                "to": "metrics.selectedDevice.id",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "metric.created",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 970,
+        "y": 1020,
+        "wires": [
+            [
+                "7d1bc4133ea278e6"
+            ]
+        ]
+    },
+    {
+        "id": "7d1bc4133ea278e6",
+        "type": "template",
+        "z": "b3c80c359564a418",
+        "name": "Insert metric query",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "INSERT INTO metrics (device_id, slave_id, function_code, register_start, data_format, byte_order, refresh_rate, name)\nVALUES (:device_id, :slave_id, :function_code, :register_start, :data_format, :byte_order, :refresh_rate, :name);\n",
+        "output": "str",
+        "x": 990,
+        "y": 1060,
+        "wires": [
+            [
+                "c8aa4cfd85ec9130"
+            ]
+        ]
+    },
+    {
+        "id": "c8aa4cfd85ec9130",
+        "type": "mysql",
+        "z": "b3c80c359564a418",
+        "mydb": "ccc2db95d82dbaa2",
+        "name": "",
+        "x": 970,
+        "y": 1100,
+        "wires": [
+            [
+                "9d0322655db97781"
+            ]
+        ]
+    },
+    {
+        "id": "42884f92cf81e684",
+        "type": "change",
+        "z": "b3c80c359564a418",
+        "name": "Remember selected device",
+        "rules": [
+            {
+                "t": "set",
+                "p": "metrics.selectedDevice",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 720,
+        "wires": [
+            [
+                "61a4371b5c975289"
+            ]
+        ]
+    },
+    {
+        "id": "abe2dae2fee59945",
+        "type": "link call",
+        "z": "b3c80c359564a418",
+        "name": "Metrics updated",
+        "links": [
+            "1f5a4dddab2f5e71"
+        ],
+        "timeout": "0",
+        "x": 440,
+        "y": 1180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "987f05e55b270a48",
+        "type": "link call",
+        "z": "b3c80c359564a418",
+        "name": "Metrics updated",
+        "links": [
+            "1f5a4dddab2f5e71"
+        ],
+        "timeout": "0",
+        "x": 700,
+        "y": 1180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ffd9d8248d5ad565",
+        "type": "link call",
+        "z": "b3c80c359564a418",
+        "name": "Metrics updated",
+        "links": [
+            "1f5a4dddab2f5e71"
+        ],
+        "timeout": "0",
+        "x": 980,
+        "y": 1180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1f5a4dddab2f5e71",
+        "type": "link in",
+        "z": "b3c80c359564a418",
+        "name": "Metrics updated",
+        "links": [],
+        "x": 215,
+        "y": 740,
+        "wires": [
+            [
+                "61a4371b5c975289"
+            ]
+        ]
+    },
+    {
+        "id": "888a30bc0fbf3eab",
+        "type": "function",
+        "z": "b3c80c359564a418",
+        "name": "Update flow.metrics",
+        "func": "const result = msg.payload;\n\nconst device = flow.get(\"metrics.selectedDevice\");\nconst editedMetric = flow.get(\"metric.edited\");\n\nlet metrics = global.get(\"metrics\")[device.id];\n\nfor(let i = 0; i < metrics.length; i++) {\n    if(metrics[i].id === editedMetric.id) {\n        metrics[i] = editedMetric;\n        break;\n    }\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 1140,
+        "wires": [
+            [
+                "abe2dae2fee59945"
+            ]
+        ]
+    },
+    {
+        "id": "bfe81167321bcf9d",
+        "type": "function",
+        "z": "b3c80c359564a418",
+        "name": "Update flow.metrics",
+        "func": "const result = msg.payload;\n\nconst device = flow.get(\"metrics.selectedDevice\");\nconst deleted = flow.get(\"metric.deleted\");\n\nlet metrics = global.get(\"metrics\")[device.id];\n\nfor(let i = 0; i < metrics.length; i++) {\n    if(metrics[i].id === deleted.id) {\n        metrics.splice(i, 1);\n        break;\n    }\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 1140,
+        "wires": [
+            [
+                "987f05e55b270a48"
+            ]
+        ]
+    },
+    {
+        "id": "9d0322655db97781",
+        "type": "function",
+        "z": "b3c80c359564a418",
+        "name": "Update flow.metrics",
+        "func": "const result = msg.payload;\n\nconst device = flow.get(\"metrics.selectedDevice\");\nconst created = flow.get(\"metric.created\");\n\ncreated.id = result.insertId;\n\nlet metrics = global.get(\"metrics\")[device.id];\nmetrics.push(created)\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 990,
+        "y": 1140,
+        "wires": [
+            [
+                "ffd9d8248d5ad565"
+            ]
+        ]
+    },
+    {
+        "id": "e17220f18ad47e47",
+        "type": "link call",
+        "z": "b3c80c359564a418",
+        "name": "Forward to home",
+        "links": [
+            "874241752f18c450"
+        ],
+        "timeout": "0",
+        "x": 130,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aa62815eabec1272",
+        "type": "link call",
+        "z": "b3c80c359564a418",
+        "name": "Forward to home",
+        "links": [
+            "c96fdc8e85c8b0b9"
+        ],
+        "timeout": "0",
+        "x": 130,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "733bc566fac12634",
+        "type": "function",
+        "z": "b083defed2b702cd",
+        "name": "formatValues",
+        "func": "\nconst data = msg.payload;\nconst metric = flow.get(\"selectedMetric\");\n\nconst flip = bytes => {\n    let copy = [...bytes]\n    let i = 1;\n    while(i < bytes.length) {\n        let temp = copy[i];\n        copy[i] = copy[i-1];\n        copy[i-1] = temp;\n        i += 2;\n    }\n    return copy;\n}\n\n// shouldFlip, bigEndian\nconst formatInfo = {\n    \"AB\": [false, true],\n    \"BA\": [false, false],\n    \"ABCD\": [false, true],\n    \"DCBA\": [false, false],\n    \"ABCDEFGH\": [false, true],\n    \"HGFEDCBA\": [false, true],\n    \"BADC\": [true, true],\n    \"CDAB\": [true, false],\n    \"BADCFEHG\": [true, true],\n    \"GHEFCDAB\": [true, false]\n}[metric.byte_order];\n\nconst converter = {\n    \"int16\": v => v.getInt16(0),\n    \"uint16\": v => v.getUint16(0),\n    \"int32\": v => v.getInt32(0),\n    \"uint32\": v => v.getUint32(0),\n    \"float32\": v => v.getFloat32(0),\n    \"float64\": v => v.getFloat64(0),\n}[metric.data_format];\n\nconst format = bytes => {\n    if(formatInfo[0]) {\n        bytes = flip(bytes);\n    }\n    \n    let buf = new ArrayBuffer(bytes.length);\n    let view = new DataView(buf);\n    \n    bytes.forEach((b, i) => {\n        view.setUint8(formatInfo[1] ? i : bytes.length - i - 1, b);\n    });\n    \n    return converter(view);\n}\n\ndata.forEach(d => {\n    d.formatted = format(d.value);\n});\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 500,
+        "wires": [
+            [
+                "6a7ae90e32b2f774"
+            ]
+        ]
+    },
+    {
+        "id": "79ad30530941d515",
+        "type": "mysql",
+        "z": "b083defed2b702cd",
+        "mydb": "ccc2db95d82dbaa2",
+        "name": "",
+        "x": 230,
+        "y": 460,
+        "wires": [
+            [
+                "733bc566fac12634"
+            ]
+        ]
+    },
+    {
+        "id": "80f747913d2d1d7e",
+        "type": "template",
+        "z": "b083defed2b702cd",
+        "name": "Select metrics data query",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "SELECT * \nFROM metrics_data \nWHERE metric_id = :id\nORDER BY timestamp DESC\nLIMIT 50;",
+        "output": "str",
+        "x": 270,
+        "y": 420,
+        "wires": [
+            [
+                "79ad30530941d515"
+            ]
+        ]
+    },
+    {
+        "id": "60f4edfed5973663",
+        "type": "function",
+        "z": "b083defed2b702cd",
+        "name": "Format devices for dropdown",
+        "func": "const toKeyValue = device => {\n    let kv = {};\n    kv[device.name] = device;\n    return kv;\n}\n\nconst devices = global.get(\"devices\");\nmsg.options = devices.map(toKeyValue);\nmsg.payload = null;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 120,
+        "wires": [
+            [
+                "9217769332eaa855"
+            ]
+        ]
+    },
+    {
+        "id": "9217769332eaa855",
+        "type": "ui_dropdown",
+        "z": "b083defed2b702cd",
+        "name": "Select device",
+        "label": "",
+        "tooltip": "",
+        "place": "Select device",
+        "group": "958ed828fd55f748",
+        "order": 2,
+        "width": 8,
+        "height": 1,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "",
+                "value": "",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 230,
+        "y": 160,
+        "wires": [
+            [
+                "8484dc06bd71d729"
+            ]
+        ]
+    },
+    {
+        "id": "874241752f18c450",
+        "type": "link in",
+        "z": "b083defed2b702cd",
+        "name": "Devices initialized",
+        "links": [],
+        "x": 55,
+        "y": 60,
+        "wires": [
+            [
+                "60f4edfed5973663"
+            ]
+        ]
+    },
+    {
+        "id": "c96fdc8e85c8b0b9",
+        "type": "link in",
+        "z": "b083defed2b702cd",
+        "name": "Devices updated",
+        "links": [],
+        "x": 55,
+        "y": 100,
+        "wires": [
+            [
+                "60f4edfed5973663"
+            ]
+        ]
+    },
+    {
+        "id": "8484dc06bd71d729",
+        "type": "change",
+        "z": "b083defed2b702cd",
+        "name": "Remember selected device",
+        "rules": [
+            {
+                "t": "set",
+                "p": "metrics.selectedDevice",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 200,
+        "wires": [
+            [
+                "ab9182fece07456f"
+            ]
+        ]
+    },
+    {
+        "id": "ab9182fece07456f",
+        "type": "function",
+        "z": "b083defed2b702cd",
+        "name": "Select metrics for device",
+        "func": "const device = flow.get(\"metrics.selectedDevice\");\nconst metrics = global.get(\"metrics\");\nmsg.payload = metrics[device.id];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 240,
+        "wires": [
+            [
+                "ecb2b98b7083d0af"
+            ]
+        ]
+    },
+    {
+        "id": "ecb2b98b7083d0af",
+        "type": "function",
+        "z": "b083defed2b702cd",
+        "name": "Format metrics for dropdown",
+        "func": "const toKeyValue = metric => {\n    let kv = {};\n    kv[metric.name] = metric;\n    return kv;\n}\n\nconst metrics = msg.payload;\nmsg.options = metrics.map(toKeyValue);\nmsg.payload = null;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 280,
+        "wires": [
+            [
+                "760a42982a73d29a"
+            ]
+        ]
+    },
+    {
+        "id": "760a42982a73d29a",
+        "type": "ui_dropdown",
+        "z": "b083defed2b702cd",
+        "name": "Select metric",
+        "label": "",
+        "tooltip": "",
+        "place": "Select metric",
+        "group": "958ed828fd55f748",
+        "order": 5,
+        "width": 8,
+        "height": 1,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "",
+                "value": "",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 230,
+        "y": 320,
+        "wires": [
+            [
+                "1d7b74f430c77cad"
+            ]
+        ]
+    },
+    {
+        "id": "8889cde26b6feedc",
+        "type": "ui_gauge",
+        "z": "b083defed2b702cd",
+        "name": "",
+        "group": "958ed828fd55f748",
+        "order": 8,
+        "width": 8,
+        "height": 6,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value | number:1}}°C",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "20",
+        "seg2": "35",
+        "className": "",
+        "x": 250,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "6a7ae90e32b2f774",
+        "type": "switch",
+        "z": "b083defed2b702cd",
+        "name": "Check if empty",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 240,
+        "y": 540,
+        "wires": [
+            [
+                "e96421558bb3d146",
+                "6198af89dae12190"
+            ],
+            [
+                "71584de9ae3755a5"
+            ]
+        ]
+    },
+    {
+        "id": "71584de9ae3755a5",
+        "type": "template",
+        "z": "b083defed2b702cd",
+        "name": "Empty notif",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Selected metric does not have any data.",
+        "output": "str",
+        "x": 570,
+        "y": 600,
+        "wires": [
+            [
+                "a6b99de1ab494d8b"
+            ]
+        ]
+    },
+    {
+        "id": "a6b99de1ab494d8b",
+        "type": "ui_toast",
+        "z": "b083defed2b702cd",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "No data",
+        "name": "",
+        "x": 580,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "e96421558bb3d146",
+        "type": "change",
+        "z": "b083defed2b702cd",
+        "name": "Get first value",
+        "rules": [
+            {
+                "t": "set",
+                "p": "metrics.latestValue",
+                "pt": "flow",
+                "to": "payload[0]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[0].formatted",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 600,
+        "wires": [
+            [
+                "8889cde26b6feedc"
+            ]
+        ]
+    },
+    {
+        "id": "835ec5b8a319838b",
+        "type": "ui_chart",
+        "z": "b083defed2b702cd",
+        "name": "",
+        "group": "958ed828fd55f748",
+        "order": 20,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "Day HH",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "1",
+        "removeOlderPoints": "20",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 250,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6198af89dae12190",
+        "type": "split",
+        "z": "b083defed2b702cd",
+        "name": "For each data",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 280,
+        "y": 700,
+        "wires": [
+            [
+                "bdfb27d6a47ee7bf"
+            ]
+        ]
+    },
+    {
+        "id": "bdfb27d6a47ee7bf",
+        "type": "function",
+        "z": "b083defed2b702cd",
+        "name": "Format for chart",
+        "func": "const metric = flow.get(\"metrics.selectedMetric\");\nconst data = msg.payload;\n\nmsg.payload = data.formatted;\nmsg.topic = metric.name;\nmsg.timestamp = data.timestamp;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 740,
+        "wires": [
+            [
+                "835ec5b8a319838b"
+            ]
+        ]
+    },
+    {
+        "id": "1d7b74f430c77cad",
+        "type": "change",
+        "z": "b083defed2b702cd",
+        "name": "Remember selected metric",
+        "rules": [
+            {
+                "t": "set",
+                "p": "metrics.selectedMetric",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 360,
+        "wires": [
+            [
+                "80f747913d2d1d7e"
+            ]
+        ]
+    },
+    {
+        "id": "7f4e9f0d480ea9a4",
+        "type": "mysql",
+        "z": "b083defed2b702cd",
+        "mydb": "ccc2db95d82dbaa2",
+        "name": "",
+        "x": 270,
+        "y": 980,
+        "wires": [
+            [
+                "ad444b756c6ac75f",
+                "fb7ad83f89110b44"
+            ]
+        ]
+    },
+    {
+        "id": "582687bc25e2a8bb",
+        "type": "template",
+        "z": "b083defed2b702cd",
+        "name": "Select metrics data query",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "SELECT * \nFROM metrics_data \nWHERE metric_id = {{flow.metrics.selectedMetric.id}} \n    AND id > {{flow.metrics.latestValue.id}}\nORDER BY timestamp DESC\nLIMIT 50;",
+        "output": "str",
+        "x": 310,
+        "y": 940,
+        "wires": [
+            [
+                "7f4e9f0d480ea9a4"
+            ]
+        ]
+    },
+    {
+        "id": "4ce7924ad77f5789",
+        "type": "inject",
+        "z": "b083defed2b702cd",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payload": "metrics.latestValue",
+        "payloadType": "flow",
+        "x": 310,
+        "y": 840,
+        "wires": [
+            [
+                "4d91037ee01f1560"
+            ]
+        ]
+    },
+    {
+        "id": "4d91037ee01f1560",
+        "type": "switch",
+        "z": "b083defed2b702cd",
+        "name": "LatestValue valid",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 290,
+        "y": 900,
+        "wires": [
+            [
+                "098ac543772d6c3a"
+            ]
+        ]
+    },
+    {
+        "id": "ad444b756c6ac75f",
+        "type": "function",
+        "z": "b083defed2b702cd",
+        "name": "formatValues",
+        "func": "\nconst data = msg.payload;\nconst metric = flow.get(\"selectedMetric\");\n\nconst flip = bytes => {\n    let copy = [...bytes]\n    let i = 1;\n    while(i < bytes.length) {\n        let temp = copy[i];\n        copy[i] = copy[i-1];\n        copy[i-1] = temp;\n        i += 2;\n    }\n    return copy;\n}\n\n// shouldFlip, bigEndian\nconst formatInfo = {\n    \"AB\": [false, true],\n    \"BA\": [false, false],\n    \"ABCD\": [false, true],\n    \"DCBA\": [false, false],\n    \"ABCDEFGH\": [false, true],\n    \"HGFEDCBA\": [false, true],\n    \"BADC\": [true, true],\n    \"CDAB\": [true, false],\n    \"BADCFEHG\": [true, true],\n    \"GHEFCDAB\": [true, false]\n}[metric.byte_order];\n\nconst converter = {\n    \"int16\": v => v.getInt16(0),\n    \"uint16\": v => v.getUint16(0),\n    \"int32\": v => v.getInt32(0),\n    \"uint32\": v => v.getUint32(0),\n    \"float32\": v => v.getFloat32(0),\n    \"float64\": v => v.getFloat64(0),\n}[metric.data_format];\n\nconst format = bytes => {\n    if(formatInfo[0]) {\n        bytes = flip(bytes);\n    }\n    \n    let buf = new ArrayBuffer(bytes.length);\n    let view = new DataView(buf);\n    \n    bytes.forEach((b, i) => {\n        view.setUint8(formatInfo[1] ? i : bytes.length - i - 1, b);\n    });\n    \n    return converter(view);\n}\n\ndata.forEach(d => {\n    d.formatted = format(d.value);\n});\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 1020,
+        "wires": [
+            [
+                "9613a0b65b254524"
+            ]
+        ]
+    },
+    {
+        "id": "098ac543772d6c3a",
+        "type": "switch",
+        "z": "b083defed2b702cd",
+        "name": "Selected metric valid",
+        "property": "metrics.selectedMetric",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 500,
+        "y": 900,
+        "wires": [
+            [
+                "582687bc25e2a8bb"
+            ]
+        ]
+    },
+    {
+        "id": "fb7ad83f89110b44",
+        "type": "debug",
+        "z": "b083defed2b702cd",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "9613a0b65b254524",
+        "type": "switch",
+        "z": "b083defed2b702cd",
+        "name": "If not empty",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 270,
+        "y": 1060,
+        "wires": [
+            [
+                "e96421558bb3d146",
+                "6198af89dae12190"
+            ]
+        ]
+    }
+]
