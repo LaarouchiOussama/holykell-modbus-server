@@ -49,6 +49,11 @@ public class ConfigManager {
         return Boolean.parseBoolean(property);
     }
 
+    public int getIntProperty(String propertyName) {
+        String property = getProperty(propertyName);
+        return Integer.parseInt(property);
+    }
+
     private void loadProperties() throws IOException {
         InputStream inputStream = getClass().getClassLoader().getResourceAsStream(propertiesFilename);
 

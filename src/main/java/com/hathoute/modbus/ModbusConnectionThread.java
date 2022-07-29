@@ -66,7 +66,7 @@ public class ModbusConnectionThread extends Thread {
                 MetricData data = new MetricData(metric.getId(), bytes, Timestamp.from(Instant.now()));
                 modbusManager.saveMetricData(data);
 
-                if(ConfigManager.getInstance().getBooleanProperty("parsing.show_value")) {
+                if(ConfigManager.getInstance().getBooleanProperty("debug.show_value")) {
                     logger.info("Metric '" + metric.getName() + "' (" + metric.getId()
                             + ") : " + parser.parse(bytes));
                 }

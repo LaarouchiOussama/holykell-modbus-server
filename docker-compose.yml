@@ -8,7 +8,9 @@ services:
     ports:
       - "0.0.0.0:6651:6651/tcp"
     environment:
-      - PARSING_SHOW_VALUE=false
+      - DEBUG_SHOW_VALUE=false
+      - SERVER_PORT=6651    # For a different port, please edit the binding, not this value
+      - SERVER_USE_RTU_OVER_TCP=true
       - DATABASE_USER=user
       - DATABASE_PASSWORD=user_passwd
       - DATABASE_HOSTNAME=mariadb
@@ -16,7 +18,7 @@ services:
   mariadb:
     image: mariadb:10.7
     ports:
-      - "3307:3306"
+      - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=root_passwd
       - MYSQL_PASSWORD=user_passwd
