@@ -73,6 +73,11 @@ prioritizes.
 | database.database_name  | DATABASE_DATABASE_NAME  |
 | debug.show_value        | DEBUG_SHOW_VALUE        |
 
+## Dashboard
+
+This project comes with a [Node-RED](https://nodered.org/) dashboard that you can import to
+easily manage devices and view metrics: [Modbus Node-RED flow](node-red-flow.json)
+
 ## Using Docker
 
 You can find a [Dockerfile](Dockerfile) in the root directory 
