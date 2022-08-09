@@ -77,6 +77,7 @@ public class DatabaseManager {
                 "  `data_format` varchar(255) NOT NULL,\n" +
                 "  `byte_order` varchar(255) NULL,\n" +
                 "  `refresh_rate` int(0) NOT NULL,\n" +
+                "  `unit` varchar(255) NOT NULL,\n" +
                 "   CONSTRAINT fk_metrics__device\n" +
                 "        FOREIGN KEY (device_id) REFERENCES devices (id)\n" +
                 "        ON DELETE CASCADE," +
