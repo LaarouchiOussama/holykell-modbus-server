@@ -3,6 +3,16 @@
 A server application capable of communicating with a serial port that
 converts RS485 (such as [Serial Server H305](https://www.holykell.com/products/Serial_Server_H305.html))
 
+- [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installing](#installing)
+- [Configuring the environment](#configuring-the-environment)
+- [Database migration](#database-migration)
+- [Dashboard](#dashboard)
+- [Using Docker](#using-docker)
+- [Dependencies](#dependencies)
+- [License](#license)
+
 ## Getting Started
 
 These instructions will give you a copy of the project up and running on
@@ -72,6 +82,19 @@ prioritizes.
 | database.password       | DATABASE_PASSWORD       |
 | database.database_name  | DATABASE_DATABASE_NAME  |
 | debug.show_value        | DEBUG_SHOW_VALUE        |
+
+## Database migration
+
+When updating to a newer version of this project, you must ensure that the database structure is the 
+is also updated. Therefore, you have to run database migrations to update your database.
+
+Please make sure to **back up your database** before running any migration, so that no data will be lost.
+
+    java -jar modbus-server.jar run_migrations current_version target_version
+
+For example, if one would want to update from **1.1.0** to **2.0.0** :
+
+    java -jar modbus-server.jar run_migrations 1.1.0 2.0.0
 
 ## Dashboard
 
