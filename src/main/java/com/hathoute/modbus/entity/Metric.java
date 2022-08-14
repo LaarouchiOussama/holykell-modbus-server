@@ -25,6 +25,7 @@ public class Metric {
     private String dataFormat;
     private String byteOrder;
     private int refreshRate;
+    private String unit;
 
     public static StatementProvider selectMetricByDeviceProvider(int deviceId) {
         return connection -> {
@@ -47,9 +48,10 @@ public class Metric {
             String dataFormat = resultSet.getString("data_format");
             String byteOrder = resultSet.getString("byte_order");
             int refreshRate = resultSet.getInt("refresh_rate");
+            String unit = resultSet.getString("unit");
 
             return new Metric(id, name, deviceId, slaveId, functionCode,
-                    registerStart, dataFormat, byteOrder, refreshRate);
+                    registerStart, dataFormat, byteOrder, refreshRate, unit);
         };
     }
 }

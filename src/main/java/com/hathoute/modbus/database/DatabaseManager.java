@@ -2,6 +2,7 @@ package com.hathoute.modbus.database;
 
 import com.hathoute.modbus.config.ConfigManager;
 import com.mysql.cj.jdbc.MysqlDataSource;
+import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,21 +16,24 @@ public class DatabaseManager {
 
     private static final Logger logger = LoggerFactory.getLogger(DatabaseManager.class);
 
+    @Getter
     private final DataSource dataSource;
 
     public DatabaseManager() {
         this(ConfigManager.getInstance().getProperty("database.user"),
+                ConfigManager.getInstance().getIntProperty("database.port"),
                 ConfigManager.getInstance().getProperty("database.password"),
                 ConfigManager.getInstance().getProperty("database.hostname"));
     }
 
-    public DatabaseManager(String user, String password, String serverName) {
-        logger.debug("MysqlDataSource: " + user + "@" + serverName + " - " + password);
+    public DatabaseManager(String user, int port, String password, String serverName) {
+        logger.debug("MysqlDataSource: " + user + "@" + serverName + ":" + port);
 
         MysqlDataSource source = new MysqlDataSource();
         source.setUser(user);
         source.setPassword(password);
         source.setServerName(serverName);
+        source.setPort(port);
         dataSource = source;
     }
 
@@ -88,7 +92,7 @@ public class DatabaseManager {
         String metricsDataTable = "CREATE TABLE IF NOT EXISTS `metrics_data`  (\n" +
                 "  `id` int(0) NOT NULL AUTO_INCREMENT,\n" +
                 "  `metric_id` int(0) NOT NULL,\n" +
-                "  `value` tinyblob NOT NULL,\n" +
+                "  `value` double NOT NULL,\n" +
                 "  `timestamp` timestamp NOT NULL,\n" +
                 "   CONSTRAINT fk_metrics_data__metrics\n" +
                 "        FOREIGN KEY (metric_id) REFERENCES metrics (id)\n" +

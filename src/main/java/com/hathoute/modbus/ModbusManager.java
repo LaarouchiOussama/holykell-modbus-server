@@ -90,10 +90,6 @@ public class ModbusManager {
     private void initialize() {
         logger.debug("initialize()");
 
-        AbstractParser.initialize();
-
-        ModbusOperationFactory.initialize();
-
         try {
             List<Device> devices = databaseManager.query(Device.selectAllDevicesProvider(),
                     ResultParser.listParser(Device.parser()));

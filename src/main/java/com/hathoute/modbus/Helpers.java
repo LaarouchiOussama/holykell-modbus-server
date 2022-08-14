@@ -1,5 +1,6 @@
 package com.hathoute.modbus;
 
+import com.hathoute.modbus.exception.ByteLengthMismatchException;
 import com.hathoute.modbus.parser.ByteBufferSupplier;
 
 import java.nio.ByteBuffer;
@@ -16,31 +17,32 @@ public class Helpers {
     }
 
     public static ByteBufferSupplier createByteBufferSupplier(String order) {
-        ByteOrder byteOrder = ByteOrder.BIG_ENDIAN;
+        ByteOrder byteOrder = ByteOrder.LITTLE_ENDIAN;
         switch (order) {
-            case "CDAB":
-            case "DCBA":
-            case "GHEFCDAB":
-            case "HGFEDCBA":
-                byteOrder = ByteOrder.LITTLE_ENDIAN;
+            case "AB":
+            case "ABCD":
+            case "BADC":
+            case "ABCDEFGH":
+            case "BADCFEHG":
+                byteOrder = ByteOrder.BIG_ENDIAN;
+                break;
         }
 
         boolean isReversed = false;
         switch (order) {
-            case "BA":
             case "BADC":
-            case "DCBA":
+            case "CDAB":
             case "BADCFEHG":
-            case "HGFEDCBA":
+            case "GHEFCDAB":
                 isReversed = true;
+                break;
         }
 
         boolean finalIsReversed = isReversed;
         ByteOrder finalByteOrder = byteOrder;
         return bytes -> {
             if(bytes.length != order.length()) {
-                // TODO: Log error...
-                return null;
+                throw new ByteLengthMismatchException();
             }
 
             if(finalIsReversed) {

@@ -17,7 +17,7 @@ public class MetricData {
     @NonNull
     private int metricId;
     @NonNull
-    private byte[] value;
+    private double value;
     @NonNull
     private Timestamp timestamp;
 
@@ -38,7 +38,7 @@ public class MetricData {
                             "VALUES (?, ?, ?);"
             );
             statement.setInt(1, this.metricId);
-            statement.setBytes(2, this.value);
+            statement.setDouble(2, this.value);
             statement.setTimestamp(3, this.timestamp);
 
             return statement;
@@ -49,7 +49,7 @@ public class MetricData {
         return resultSet -> {
             int id = resultSet.getInt("id");
             int metricId = resultSet.getInt("metric_id");
-            byte[] value = resultSet.getBytes("value");
+            double value = resultSet.getDouble("value");
             Timestamp timestamp = resultSet.getTimestamp("timestamp");
 
             return new MetricData(id, metricId, value, timestamp);

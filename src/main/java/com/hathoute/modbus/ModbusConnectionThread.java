@@ -6,6 +6,7 @@ import com.hathoute.modbus.config.ConfigManager;
 import com.hathoute.modbus.entity.Device;
 import com.hathoute.modbus.entity.Metric;
 import com.hathoute.modbus.entity.MetricData;
+import com.hathoute.modbus.exception.ByteLengthMismatchException;
 import com.hathoute.modbus.functioncode.ModbusOperation;
 import com.hathoute.modbus.functioncode.ModbusOperationFactory;
 import com.hathoute.modbus.parser.AbstractParser;
@@ -51,7 +52,7 @@ public class ModbusConnectionThread extends Thread {
     class ModbusMetricRunnable implements Runnable {
         private final Metric metric;
         private final ModbusOperation handler;
-        private final AbstractParser<?> parser;
+        private final AbstractParser parser;
 
         public ModbusMetricRunnable(Metric metric) {
             this.metric = metric;
@@ -63,13 +64,15 @@ public class ModbusConnectionThread extends Thread {
         public void run() {
             try {
                 byte[] bytes = handler.execute(master);
-                MetricData data = new MetricData(metric.getId(), bytes, Timestamp.from(Instant.now()));
+                double value = parser.parse(bytes);
+                MetricData data = new MetricData(metric.getId(), value, Timestamp.from(Instant.now()));
                 modbusManager.saveMetricData(data);
 
                 if(ConfigManager.getInstance().getBooleanProperty("debug.show_value")) {
-                    logger.info("Metric '" + metric.getName() + "' (" + metric.getId()
-                            + ") : " + parser.parse(bytes));
+                    logger.debug("Metric '" + metric.getName() + "' : " + value + " " + metric.getUnit());
                 }
+            } catch (ByteLengthMismatchException e) {
+                logger.error("Corrupted value for metric " + metric.getName());
             } catch (ModbusException e) {
                 throw new RuntimeException(e);
             }
