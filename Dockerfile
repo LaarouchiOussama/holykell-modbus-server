@@ -6,6 +6,6 @@ RUN mvn dependency:resolve
 RUN mvn install -DskipTests 
 
 FROM openjdk:8-jdk-alpine
-COPY --from=build /app/target/modbus-server-1.0-SNAPSHOT.jar ./modbus-server.jar
+COPY --from=build /app/target/modbus-server-2.0.0.jar ./modbus-server.jar
 EXPOSE 6651
 ENTRYPOINT ["java", "-jar", "modbus-server.jar"]
