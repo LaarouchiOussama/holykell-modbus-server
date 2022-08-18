@@ -1,11 +1,11 @@
 # syntax=docker/dockerfile:1
-
-FROM openjdk:8
-ARG RELEASE_VERSION
-
+FROM maven:3.5-jdk-8 AS build
 WORKDIR /app
+ADD . /app/
+RUN mvn dependency:resolve
+RUN mvn install -DskipTests 
 
-ADD target/modbus-server-${RELEASE_VERSION}.jar ./modbus-server.jar
-
-ENTRYPOINT ["java", "-jar", "modbus-server.jar"]
+FROM openjdk:8-jdk-alpine
+COPY --from=build /app/target/modbus-server-1.0-SNAPSHOT.jar ./modbus-server.jar
 EXPOSE 6651
+ENTRYPOINT ["java", "-jar", "modbus-server.jar"]
