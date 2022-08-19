@@ -38,3 +38,6 @@ services:
 
 volumes:
   node-red-data:
+
+networks:
+  node-red-net:
