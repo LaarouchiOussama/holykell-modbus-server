@@ -28,8 +28,9 @@ services:
     image: grafana/grafana
     depends_on:
       - mariadb
+    restart: unless-stopped
     volumes:
-      - ./grafana:/var/lib/grafana:rw
+      - grafana_data:/var/lib/grafana
     environment:
       - GF_DATABASE_HOST=mariadb:3306
       - GF_DATABASE_NAME=modbus_rtu
@@ -51,3 +52,4 @@ services:
 
 volumes:
   node-red-data:
+  grafana_data: {}
