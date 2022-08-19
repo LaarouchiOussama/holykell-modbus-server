@@ -31,13 +31,8 @@ services:
     restart: "always"
     ports:
       - "0.0.0.0:1880:1880"
-    networks:
-      - node-red-net
     volumes:
       - node-red-data:/data
 
 volumes:
   node-red-data:
-
-networks:
-  node-red-net:
