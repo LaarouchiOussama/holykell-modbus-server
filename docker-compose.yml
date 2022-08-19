@@ -24,6 +24,21 @@ services:
       - MYSQL_PASSWORD=user_passwd
       - MYSQL_USER=user
       - MYSQL_DATABASE=modbus_rtu
+  grafana:
+    image: grafana/grafana
+    depends_on:
+      - mariadb
+    volumes:
+      - ./grafana:/var/lib/grafana:rw
+    environment:
+      - GF_DATABASE_HOST=mariadb:3306
+      - GF_DATABASE_NAME=modbus_rtu
+      - GF_DATABASE_USER=user
+      - GF_DATABASE_PASSWORD=user_passwd
+      - GF_DATABASE_TYPE=mysql
+      - GF_DATABASE_MAX_OPEN_CONN=300
+    ports:
+      - "0.0.0.0:3000:3000"
   node-red:
     image: nodered/node-red
     depends_on:
