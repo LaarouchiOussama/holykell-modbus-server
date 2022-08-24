@@ -127,6 +127,10 @@ public class ModbusTCPMaster extends AbstractModbusMaster {
         }
     }
 
+    public TCPMasterConnection getConnection() {
+        return this.connection;
+    }
+
     /**
      * Connects this <tt>ModbusTCPMaster</tt> with the slave.
      *
@@ -149,6 +153,7 @@ public class ModbusTCPMaster extends AbstractModbusMaster {
             master.useRtuOverTcp = useRtuOverTcp;
             master.transaction = connection.getModbusTransport().createTransaction();
             ((ModbusTCPTransaction)master.transaction).setReconnecting(false);
+            master.transaction.setRetries(0);
             master.setTransaction(master.transaction);
 
             callback.onConnection(serialId, master);

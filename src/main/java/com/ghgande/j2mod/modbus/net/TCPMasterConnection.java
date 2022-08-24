@@ -71,6 +71,10 @@ public class TCPMasterConnection {
         address = adr;
     }
 
+    public Socket getSocket() {
+        return this.socket;
+    }
+
     /**
      * Prepares the associated <tt>ModbusTransport</tt> of this
      * <tt>TCPMasterConnection</tt> for use.

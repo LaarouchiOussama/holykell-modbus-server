@@ -13,6 +13,9 @@ import com.hathoute.modbus.parser.AbstractParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.Socket;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.concurrent.Executors;
@@ -63,6 +66,16 @@ public class ModbusConnectionThread extends Thread {
         @Override
         public void run() {
             try {
+                // Deal with heartbeats
+                Socket client = master.getConnection().getSocket();
+                InputStream is = client.getInputStream();
+                if(is.available() > 0) {
+                    logger.debug("Found {} bytes tailing", is.available());
+                    byte[] tail = new byte[is.available()];
+                    int read = is.read(tail);
+                    logger.debug("Bytes read: {}, size: {}", tail, read);
+                }
+
                 byte[] bytes = handler.execute(master);
                 double value = parser.parse(bytes);
                 MetricData data = new MetricData(metric.getId(), value, Timestamp.from(Instant.now()));
@@ -73,7 +86,7 @@ public class ModbusConnectionThread extends Thread {
                 }
             } catch (ByteLengthMismatchException e) {
                 logger.error("Corrupted value for metric " + metric.getName());
-            } catch (ModbusException e) {
+            } catch (ModbusException | IOException e) {
                 throw new RuntimeException(e);
             }
         }
