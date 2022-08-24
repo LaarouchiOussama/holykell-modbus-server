@@ -86,7 +86,7 @@ public class ModbusConnectionThread extends Thread {
                 }
             } catch (ByteLengthMismatchException e) {
                 logger.error("Corrupted value for metric " + metric.getName());
-            } catch (ModbusException | IOException e) {
+            } catch (Exception e) {
                 logger.error("Exception inside ModbusMetricRunnable", e);
             }
         }

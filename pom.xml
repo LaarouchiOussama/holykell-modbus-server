@@ -6,7 +6,7 @@
 
     <groupId>com.hathoute</groupId>
     <artifactId>modbus-server</artifactId>
-    <version>2.1.1</version>
+    <version>2.1.2</version>
 
     <properties>
         <maven.compiler.source>18</maven.compiler.source>
