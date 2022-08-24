@@ -52,6 +52,8 @@ public class ModbusTCPTransport extends AbstractModbusTransport {
     private boolean headless = false; // Some TCP implementations are.
     private long lastActivityTimestamp;  // System.nanoTime() of last transportation
 
+    private boolean flushBeforeRequest = true;  // Deals with heartbeat packets
+
     /**
      * Default constructor
      */
@@ -397,6 +399,11 @@ public class ModbusTCPTransport extends AbstractModbusTransport {
                 int[] crc = ModbusUtil.calculateCRC(byteOutputStream.getBuffer(), 0, len);
                 byteOutputStream.writeByte(crc[0]);
                 byteOutputStream.writeByte(crc[1]);
+            }
+
+            // Flush input stream so that we don't have a heartbeat packet inside the response...
+            while (flushBeforeRequest && dataInputStream.available() > 0) {
+                dataInputStream.read();
             }
 
             dataOutputStream.write(byteOutputStream.toByteArray());
