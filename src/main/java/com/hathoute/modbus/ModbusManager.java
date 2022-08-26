@@ -4,6 +4,7 @@ import com.ghgande.j2mod.modbus.ModbusException;
 import com.ghgande.j2mod.modbus.facade.ModbusListenerCallback;
 import com.ghgande.j2mod.modbus.facade.ModbusTCPMaster;
 import com.ghgande.j2mod.modbus.procimg.Register;
+import com.hathoute.modbus.config.ConfigManager;
 import com.hathoute.modbus.database.DatabaseManager;
 import com.hathoute.modbus.database.ResultParser;
 import com.hathoute.modbus.entity.Device;
@@ -28,7 +29,8 @@ public class ModbusManager {
     private static final Logger logger = LoggerFactory.getLogger(ModbusManager.class);
 
     // How often do we check the database for new/modified devices.
-    private static final int DATABASE_CHECK_SECONDS = 30;
+    private static final int DATABASE_CHECK_SECONDS =
+            ConfigManager.getInstance().getIntProperty("database.synchronization_interval");
 
     static class ModbusEntry {
         public String serialId;
@@ -192,8 +194,17 @@ public class ModbusManager {
                             // drop this connection and wait for device to reconnect.
                             logger.info(String.format("Device %s was modified, dropping existing connection.",
                                     device.getName()));
-                            entry.master.disconnect();
+
+                            // Interrupt running thread then disconnect master,
+                            // since upon interrupting there might be running tasks.
                             entry.thread.interrupt();
+                            try {
+                                // Wait for thread to fully terminate
+                                entry.thread.join(1000);
+                            } catch (InterruptedException e) {
+                                // Do nothing...
+                            }
+                            entry.master.disconnect();
                             entryById.remove(entry.serialId);
                         }
                     }

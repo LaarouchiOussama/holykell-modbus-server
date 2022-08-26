@@ -18,8 +18,11 @@ import java.io.InputStream;
 import java.net.Socket;
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 public class ModbusConnectionThread extends Thread {
@@ -38,17 +41,23 @@ public class ModbusConnectionThread extends Thread {
     @Override
     public void run() {
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
+        List<ScheduledFuture<?>> futures = new ArrayList<>();
         for (Metric metric : device.getMetrics()) {
             ModbusMetricRunnable mmr = new ModbusMetricRunnable(metric);
-            executor.scheduleAtFixedRate(mmr, 0, metric.getRefreshRate(), TimeUnit.SECONDS);
+            ScheduledFuture<?> future = executor.scheduleAtFixedRate(mmr, 0, metric.getRefreshRate(), TimeUnit.SECONDS);
+            futures.add(future);
         }
 
         while (!Thread.interrupted()) {
             try {
                 TimeUnit.SECONDS.sleep(5);
             } catch (InterruptedException e) {
-                return;
+                break;
             }
+        }
+
+        for (ScheduledFuture<?> future : futures) {
+            future.cancel(false);
         }
     }
 
