@@ -15,6 +15,7 @@ services:
       - DATABASE_PASSWORD=user_passwd
       - DATABASE_HOSTNAME=mariadb
       - DATABASE_DATABASE_NAME=modbus_rtu
+      - DATABASE_SYNCHRONIZATION_INTERVAL=120    # Every 2 minutes
   mariadb:
     image: mariadb:10.7
     ports:

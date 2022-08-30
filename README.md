@@ -60,28 +60,32 @@ Upon launching the server, if the database does not exist, the server creates on
 You can easily configure the server without having to alter any java file.
 The `properties` file is located under `./src/main/resources/modbus-server.properties`
 
-| Property                |                           Documentation                           |
-|:------------------------|:-----------------------------------------------------------------:|
-| server.port             |               Server port for devices to connect to               |
-| server.use_rtu_over_tcp |          Use RTU over TCP when communicating with modbus          |
-| database.hostname       |                         Database hostname                         |
-| database.user           |                         Database username                         |
-| database.password       |                         Database password                         |
-| database.database_name  |                           Database name                           |
-| debug.show_value        | Display metric value when reading registers, useful for debugging |
+| Property                          |                           Documentation                           |
+|:----------------------------------|:-----------------------------------------------------------------:|
+| server.port                       |               Server port for devices to connect to               |
+| server.use_rtu_over_tcp           |          Use RTU over TCP when communicating with modbus          |
+| database.hostname                 |                         Database hostname                         |
+| database.port                     |                           Database port                           |
+| database.user                     |                         Database username                         |
+| database.password                 |                         Database password                         |
+| database.database_name            |                           Database name                           |
+| database.synchronization_interval | Time between checks for new/modified devices/metrics (in seconds) |
+| debug.show_value                  | Display metric value when reading registers, useful for debugging |
 
 You can also use `environment variables` to set these properties, which the program
 prioritizes.
 
-| Property                | Environment variable    |
-|:------------------------|:------------------------|
-| server.port             | SERVER_PORT             |
-| server.use_rtu_over_tcp | SERVER_USE_RTU_OVER_TCP |
-| database.hostname       | DATABASE_HOSTNAME       |
-| database.user           | DATABASE_USER           |
-| database.password       | DATABASE_PASSWORD       |
-| database.database_name  | DATABASE_DATABASE_NAME  |
-| debug.show_value        | DEBUG_SHOW_VALUE        |
+| Property                          | Environment variable              |
+|:----------------------------------|:----------------------------------|
+| server.port                       | SERVER_PORT                       |
+| server.use_rtu_over_tcp           | SERVER_USE_RTU_OVER_TCP           |
+| database.hostname                 | DATABASE_HOSTNAME                 |
+| database.port                     | DATABASE_PORT                     |
+| database.user                     | DATABASE_USER                     |
+| database.password                 | DATABASE_PASSWORD                 |
+| database.database_name            | DATABASE_DATABASE_NAME            |
+| database.synchronization_interval | DATABASE_SYNCHRONIZATION_INTERVAL |
+| debug.show_value                  | DEBUG_SHOW_VALUE                  |
 
 ## Database migration
 
