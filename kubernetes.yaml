@@ -1,0 +1,121 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: modbus-server
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: modbus-server
+  template:
+    metadata:
+      labels:
+        app: modbus-server
+    spec:
+      containers:
+        - name: modbus-server
+          image: hathoute/exprom-modbus-server:2.3.1.0
+          imagePullPolicy: Never
+          envFrom:
+            - secretRef:
+                name: modbus-secret
+          ports:
+          - containerPort: 6651
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: server-entrypoint
+spec:
+  type: NodePort
+  selector:
+    app: modbus-server
+  ports:
+    - port: 6651
+      targetPort: 6651
+      nodePort: 30651
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mariadb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mariadb
+  template:
+    metadata:
+      labels:
+        app: mariadb
+    spec:
+      containers:
+        - name: mariadb
+          image: mariadb:10.7
+          ports:
+            - containerPort: 3306
+          envFrom:
+            - secretRef:
+                name: mariadb-secret
+      volumes:
+        - name: mariadb-pv
+          persistentVolumeClaim:
+            claimName: mariadb-pv-claim
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mariadb-pv-claim
+  labels:
+    app: mariadb
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 500M
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mariadb
+spec:
+  type: NodePort
+  selector:
+    app: mariadb
+  ports:
+    - port: 3306
+      targetPort: 3306
+      nodePort: 30306
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: modbus-secret
+type: Opaque
+stringData:
+  DEBUG_SHOW_VALUE: "false"
+  SERVER_PORT: "6651"
+  SERVER_USE_RTU_OVER_TCP: "true"
+  DATABASE_USER: "user"
+  DATABASE_PASSWORD: "user_passwd"
+  DATABASE_HOSTNAME: "mariadb"
+  DATABASE_DATABASE_NAME: "modbus_rtu"
+  DATABASE_SYNCHRONIZATION_INTERVAL: "120"
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mariadb-secret
+type: Opaque
+stringData:
+  MARIADB_ROOT_PASSWORD: "root_passwd"
+  MARIADB_PASSWORD: "user_passwd"
+  MARIADB_USER: "user"
+  MARIADB_DATABASE: "modbus_rtu"
