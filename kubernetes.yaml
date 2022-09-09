@@ -14,8 +14,7 @@ spec:
     spec:
       containers:
         - name: modbus-server
-          image: hathoute/exprom-modbus-server:2.3.1.0
-          imagePullPolicy: Never
+          image: hathoute/exprom-modbus-server:2.3.0
           envFrom:
             - secretRef:
                 name: modbus-secret
