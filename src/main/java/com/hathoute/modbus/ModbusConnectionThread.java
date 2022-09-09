@@ -10,6 +10,7 @@ import com.hathoute.modbus.exception.ByteLengthMismatchException;
 import com.hathoute.modbus.functioncode.ModbusOperation;
 import com.hathoute.modbus.functioncode.ModbusOperationFactory;
 import com.hathoute.modbus.parser.AbstractParser;
+import java.util.concurrent.atomic.AtomicBoolean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,11 +32,13 @@ public class ModbusConnectionThread extends Thread {
     private final ModbusManager modbusManager;
     private final ModbusTCPMaster master;
     private final Device device;
+    private final AtomicBoolean terminateRequested;
 
     public ModbusConnectionThread(ModbusManager modbusManager, ModbusTCPMaster master, Device device) {
         this.modbusManager = modbusManager;
         this.master = master;
         this.device = device;
+        this.terminateRequested = new AtomicBoolean(false);
     }
 
     @Override
@@ -48,7 +51,7 @@ public class ModbusConnectionThread extends Thread {
             futures.add(future);
         }
 
-        while (!Thread.interrupted()) {
+        while (!Thread.interrupted() && !terminateRequested.get()) {
             try {
                 TimeUnit.SECONDS.sleep(5);
             } catch (InterruptedException e) {
@@ -56,6 +59,11 @@ public class ModbusConnectionThread extends Thread {
             }
         }
 
+        if (terminateRequested.get()) {
+            logger.debug("Thread termination requested for device {}", device.getName());
+        }
+
+        logger.debug("Terminating all executors for device {}", device.getName());
         for (ScheduledFuture<?> future : futures) {
             future.cancel(false);
         }
@@ -95,8 +103,11 @@ public class ModbusConnectionThread extends Thread {
                 }
             } catch (ByteLengthMismatchException e) {
                 logger.error("Corrupted value for metric " + metric.getName());
+            } catch (ModbusException e) {
+                logger.error("ModbusException inside ModbusMetricRunnable", e);
             } catch (Exception e) {
-                logger.error("Exception inside ModbusMetricRunnable", e);
+                terminateRequested.set(true);
+                logger.error("Critical error inside ModbusMetricRunnable", e);
             }
         }
     }

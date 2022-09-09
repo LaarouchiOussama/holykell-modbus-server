@@ -21,6 +21,9 @@ public class Main {
         AbstractParser.initialize();
         ModbusOperationFactory.initialize();
 
+        logger.info("Running version {} of modbus-rtu-server",
+            Main.class.getPackage().getImplementationVersion());
+
         // Check if we're running a command
         if(args.length > 0) {
             switch (args[0]) {
