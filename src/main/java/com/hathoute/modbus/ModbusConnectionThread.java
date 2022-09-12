@@ -10,11 +10,6 @@ import com.hathoute.modbus.exception.ByteLengthMismatchException;
 import com.hathoute.modbus.functioncode.ModbusOperation;
 import com.hathoute.modbus.functioncode.ModbusOperationFactory;
 import com.hathoute.modbus.parser.AbstractParser;
-import java.util.concurrent.atomic.AtomicBoolean;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
 import java.sql.Timestamp;
@@ -25,6 +20,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ModbusConnectionThread extends Thread {
     private static final Logger logger = LoggerFactory.getLogger(ModbusConnectionThread.class);
@@ -34,27 +32,29 @@ public class ModbusConnectionThread extends Thread {
     private final Device device;
     private final AtomicBoolean terminateRequested;
 
-    public ModbusConnectionThread(ModbusManager modbusManager, ModbusTCPMaster master, Device device) {
+    public ModbusConnectionThread(final ModbusManager modbusManager, final ModbusTCPMaster master,
+        final Device device) {
         this.modbusManager = modbusManager;
         this.master = master;
         this.device = device;
-        this.terminateRequested = new AtomicBoolean(false);
+        terminateRequested = new AtomicBoolean(false);
     }
 
     @Override
     public void run() {
-        ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
-        List<ScheduledFuture<?>> futures = new ArrayList<>();
-        for (Metric metric : device.getMetrics()) {
-            ModbusMetricRunnable mmr = new ModbusMetricRunnable(metric);
-            ScheduledFuture<?> future = executor.scheduleAtFixedRate(mmr, 0, metric.getRefreshRate(), TimeUnit.SECONDS);
+        final ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
+        final List<ScheduledFuture<?>> futures = new ArrayList<>();
+        for (final Metric metric : device.getMetrics()) {
+            final ModbusMetricRunnable mmr = new ModbusMetricRunnable(metric);
+            final ScheduledFuture<?> future = executor.scheduleAtFixedRate(mmr, 0,
+                metric.getRefreshRate(), TimeUnit.SECONDS);
             futures.add(future);
         }
 
         while (!Thread.interrupted() && !terminateRequested.get()) {
             try {
                 TimeUnit.SECONDS.sleep(5);
-            } catch (InterruptedException e) {
+            } catch (final InterruptedException e) {
                 break;
             }
         }
@@ -64,9 +64,12 @@ public class ModbusConnectionThread extends Thread {
         }
 
         logger.debug("Terminating all executors for device {}", device.getName());
-        for (ScheduledFuture<?> future : futures) {
+        for (final ScheduledFuture<?> future : futures) {
             future.cancel(false);
         }
+
+        // Make sure we don't have any hanging connection...
+        master.disconnect();
     }
 
     class ModbusMetricRunnable implements Runnable {
@@ -74,38 +77,40 @@ public class ModbusConnectionThread extends Thread {
         private final ModbusOperation handler;
         private final AbstractParser parser;
 
-        public ModbusMetricRunnable(Metric metric) {
+        public ModbusMetricRunnable(final Metric metric) {
             this.metric = metric;
-            this.handler = ModbusOperationFactory.create(metric);
-            this.parser = AbstractParser.getParser(metric.getDataFormat(), metric.getByteOrder());
+            handler = ModbusOperationFactory.create(metric);
+            parser = AbstractParser.getParser(metric.getDataFormat(), metric.getByteOrder());
         }
 
         @Override
         public void run() {
             try {
                 // Deal with heartbeats
-                Socket client = master.getConnection().getSocket();
-                InputStream is = client.getInputStream();
-                if(is.available() > 0) {
+                final Socket client = master.getConnection().getSocket();
+                final InputStream is = client.getInputStream();
+                if (is.available() > 0) {
                     logger.debug("Found {} bytes tailing", is.available());
-                    byte[] tail = new byte[is.available()];
-                    int read = is.read(tail);
+                    final byte[] tail = new byte[is.available()];
+                    final int read = is.read(tail);
                     logger.debug("Bytes read: {}, size: {}", tail, read);
                 }
 
-                byte[] bytes = handler.execute(master);
-                double value = parser.parse(bytes);
-                MetricData data = new MetricData(metric.getId(), value, Timestamp.from(Instant.now()));
+                final byte[] bytes = handler.execute(master);
+                final double value = parser.parse(bytes);
+                final MetricData data = new MetricData(metric.getId(), value,
+                    Timestamp.from(Instant.now()));
                 modbusManager.saveMetricData(data);
 
-                if(ConfigManager.getInstance().getBooleanProperty("debug.show_value")) {
-                    logger.debug("Metric '" + metric.getName() + "' : " + value + " " + metric.getUnit());
+                if (ConfigManager.getInstance().getBooleanProperty("debug.show_value")) {
+                    logger.debug(
+                        "Metric '" + metric.getName() + "' : " + value + " " + metric.getUnit());
                 }
-            } catch (ByteLengthMismatchException e) {
+            } catch (final ByteLengthMismatchException e) {
                 logger.error("Corrupted value for metric " + metric.getName());
-            } catch (ModbusException e) {
+            } catch (final ModbusException e) {
                 logger.error("ModbusException inside ModbusMetricRunnable", e);
-            } catch (Exception e) {
+            } catch (final Exception e) {
                 terminateRequested.set(true);
                 logger.error("Critical error inside ModbusMetricRunnable", e);
             }
