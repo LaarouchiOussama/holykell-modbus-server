@@ -227,4 +227,10 @@ public class ModbusTCPListener extends AbstractModbusListener {
         }
     }
 
+    public void injectSocket(Socket incoming) {
+        logger.debug("Injecting socket {}", incoming);
+        TCPSlaveConnection slave = new TCPSlaveConnection(incoming, useRtuOverTcp);
+        slave.setTimeout(timeout);
+        threadPool.execute(new TCPConnectionHandler(this, slave, maxIdleSeconds));
+    }
 }

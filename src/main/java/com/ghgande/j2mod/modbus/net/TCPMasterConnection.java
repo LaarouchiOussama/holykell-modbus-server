@@ -16,20 +16,19 @@
 package com.ghgande.j2mod.modbus.net;
 
 import com.ghgande.j2mod.modbus.Modbus;
-import com.ghgande.j2mod.modbus.facade.ModbusListenerCallback;
 import com.ghgande.j2mod.modbus.io.AbstractModbusTransport;
 import com.ghgande.j2mod.modbus.io.ModbusRTUTCPTransport;
 import com.ghgande.j2mod.modbus.io.ModbusTCPTransport;
 import com.ghgande.j2mod.modbus.util.ModbusUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Method;
-import java.net.*;
-import java.util.function.Function;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.SocketTimeoutException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class that implements a TCPMasterConnection.
@@ -67,12 +66,12 @@ public class TCPMasterConnection {
      *
      * @param adr the destination <tt>InetAddress</tt>.
      */
-    public TCPMasterConnection(InetAddress adr) {
+    public TCPMasterConnection(final InetAddress adr) {
         address = adr;
     }
 
     public Socket getSocket() {
-        return this.socket;
+        return socket;
     }
 
     /**
@@ -83,7 +82,7 @@ public class TCPMasterConnection {
      *
      * @throws IOException if an I/O related error occurs.
      */
-    private void prepareTransport(boolean useRtuOverTcp) throws IOException {
+    private void prepareTransport(final boolean useRtuOverTcp) throws IOException {
 
         // If we don't have a transport, or the transport type has changed
         if (transport == null || (this.useRtuOverTcp != useRtuOverTcp)) {
@@ -126,7 +125,7 @@ public class TCPMasterConnection {
      *
      * @throws Exception if there is a network failure.
      */
-    public void connect(boolean useRtuOverTcp) throws Exception {
+    public void connect(final boolean useRtuOverTcp) throws Exception {
         if (!isConnected()) {
             logger.debug("connect()");
 
@@ -149,19 +148,20 @@ public class TCPMasterConnection {
         }
     }
 
-    public static synchronized void listen(int port, boolean useRtuOverTcp, TCPMasterCallback callback) throws IOException {
+    public static synchronized void listen(
+        final int port, final boolean useRtuOverTcp, final TCPMasterCallback callback) throws IOException {
             logger.debug("listen()");
 
-            try(ServerSocket server = new ServerSocket(port)) {
+            try(final ServerSocket server = new ServerSocket(port)) {
                 logger.info("Listening on " + server.getInetAddress().getHostAddress()
                         + ":" + server.getLocalPort());
 
                 while(true) {
-                    Socket client = server.accept();
+                    final Socket client = server.accept();
                     client.setSoTimeout(5000);
 
                     // Read device serial id
-                    InputStream is = client.getInputStream();
+                    final InputStream is = client.getInputStream();
                     String serialId = "";
 
                     int readChar;
@@ -169,12 +169,12 @@ public class TCPMasterConnection {
                         while ((readChar = is.read()) != -1) {
                             serialId += (char) readChar;
                         }
-                    } catch (SocketTimeoutException e) {
+                    } catch (final SocketTimeoutException e) {
                         // Probably the end of the serialId...
                     }
                     logger.debug("Device serial id: " + serialId);
 
-                    TCPMasterConnection connection = new TCPMasterConnection(client.getInetAddress());
+                    final TCPMasterConnection connection = new TCPMasterConnection(client.getInetAddress());
                     connection.socket = client;
                     connection.port = client.getPort();
                     connection.address = client.getInetAddress();
@@ -205,7 +205,7 @@ public class TCPMasterConnection {
                 try {
                     socket.close();
                 }
-                catch (IOException e) {
+                catch (final IOException e) {
                     logger.error("Socket exception", e);
                 }
                 finally {
@@ -227,12 +227,12 @@ public class TCPMasterConnection {
                         socket.sendUrgentData(0);
                         ModbusUtil.sleep(5);
                     }
-                    catch (IOException e) {
+                    catch (final IOException e) {
                         connected = false;
                         try {
                             socket.close();
                         }
-                        catch (IOException e1) {
+                        catch (final IOException e1) {
                             // Do nothing.
                         }
                     }
@@ -246,11 +246,12 @@ public class TCPMasterConnection {
      * Closes this <tt>TCPMasterConnection</tt>.
      */
     public void close() {
+        logger.trace("TCPMasterConnection::close() - connected = %s".formatted(connected));
         if (connected) {
             try {
                 transport.close();
             }
-            catch (IOException ex) {
+            catch (final IOException ex) {
                 logger.debug("close()", ex);
             }
             finally {
@@ -274,7 +275,7 @@ public class TCPMasterConnection {
      * <tt>TCPMasterConnection</tt>
      * @param trans associated transport
      */
-    public void setModbusTransport(ModbusTCPTransport trans) {
+    public void setModbusTransport(final ModbusTCPTransport trans) {
         transport = trans;
     }
 
@@ -293,14 +294,14 @@ public class TCPMasterConnection {
      *
      * @param timeout - the timeout in milliseconds as an <tt>int</tt>.
      */
-    public synchronized void setTimeout(int timeout) {
+    public synchronized void setTimeout(final int timeout) {
         try {
             this.timeout = timeout;
             if (socket != null) {
                 socket.setSoTimeout(timeout);
             }
         }
-        catch (IOException ex) {
+        catch (final IOException ex) {
             logger.warn("Could not set timeout to value {}", timeout, ex);
         }
     }
@@ -320,7 +321,7 @@ public class TCPMasterConnection {
      *
      * @param port the port number as <tt>int</tt>.
      */
-    public void setPort(int port) {
+    public void setPort(final int port) {
         this.port = port;
     }
 
@@ -340,7 +341,7 @@ public class TCPMasterConnection {
      *
      * @param adr the destination address as <tt>InetAddress</tt>.
      */
-    public void setAddress(InetAddress adr) {
+    public void setAddress(final InetAddress adr) {
         address = adr;
     }
 
@@ -360,7 +361,7 @@ public class TCPMasterConnection {
      *
      * @param useUrgentData - Connections are testing using urgent data.
      */
-    public void setUseUrgentData(boolean useUrgentData) {
+    public void setUseUrgentData(final boolean useUrgentData) {
         this.useUrgentData = useUrgentData;
     }
 
@@ -381,7 +382,7 @@ public class TCPMasterConnection {
      *
      * @throws Exception If the connection is not valid
      */
-    public void setUseRtuOverTcp(boolean useRtuOverTcp) throws Exception {
+    public void setUseRtuOverTcp(final boolean useRtuOverTcp) throws Exception {
         this.useRtuOverTcp = useRtuOverTcp;
         if (isConnected()) {
             prepareTransport(useRtuOverTcp);

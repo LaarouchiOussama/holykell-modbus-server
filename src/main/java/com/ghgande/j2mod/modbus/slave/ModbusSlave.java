@@ -23,12 +23,12 @@ import com.ghgande.j2mod.modbus.net.ModbusUDPListener;
 import com.ghgande.j2mod.modbus.procimg.ProcessImage;
 import com.ghgande.j2mod.modbus.util.ModbusUtil;
 import com.ghgande.j2mod.modbus.util.SerialParameters;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.net.InetAddress;
+import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class that implements a wrapper around a Slave Listener
@@ -298,5 +298,13 @@ public class ModbusSlave {
         if (listener != null) {
             listener.setThreadName(threadName);
         }
+    }
+
+    public void injectSocket(Socket s) {
+        if(!this.type.is(ModbusSlaveType.TCP)) {
+            throw new RuntimeException();
+        }
+
+        ((ModbusTCPListener) listener).injectSocket(s);
     }
 }

@@ -61,12 +61,15 @@ public class ModbusConnectionThread extends Thread {
 
         if (terminateRequested.get()) {
             logger.debug("Thread termination requested for device {}", device.getName());
+
+            if (ConfigManager.getInstance().getBooleanProperty("server.shutdown_on_critical")) {
+                logger.debug("Shutting down due to a critical error");
+                System.exit(51);
+            }
         }
 
         logger.debug("Terminating all executors for device {}", device.getName());
-        for (final ScheduledFuture<?> future : futures) {
-            future.cancel(false);
-        }
+        futures.forEach(f -> f.cancel(false));
 
         // Make sure we don't have any hanging connection...
         master.disconnect();
@@ -103,8 +106,7 @@ public class ModbusConnectionThread extends Thread {
                 modbusManager.saveMetricData(data);
 
                 if (ConfigManager.getInstance().getBooleanProperty("debug.show_value")) {
-                    logger.debug(
-                        "Metric '" + metric.getName() + "' : " + value + " " + metric.getUnit());
+                    logger.debug("Metric '{}' : {} {}", metric.getName(), value, metric.getUnit());
                 }
             } catch (final ByteLengthMismatchException e) {
                 logger.error("Corrupted value for metric " + metric.getName());
