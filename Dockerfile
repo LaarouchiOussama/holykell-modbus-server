@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM openjdk:8
+FROM openjdk:17
 ARG RELEASE_VERSION
 
 WORKDIR /app
