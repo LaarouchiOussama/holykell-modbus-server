@@ -64,7 +64,7 @@ public class DatabaseManager {
         ((MysqlDataSource) dataSource).setDatabaseName(databaseName);
 
         String devicesTable = "CREATE TABLE IF NOT EXISTS `devices`  (\n" +
-                "  `id` int(0) NOT NULL AUTO_INCREMENT,\n" +
+                "  `id` varchar(255) NOT NULL ,\n" +
                 "  `serial_id` varchar(255) NOT NULL,\n" +
                 "  `name` varchar(255) NOT NULL,\n" +
                 "  PRIMARY KEY (`id`)\n" +
@@ -72,9 +72,9 @@ public class DatabaseManager {
         query(StatementProvider.raw(devicesTable));
 
         String metricsTable = "CREATE TABLE IF NOT EXISTS `metrics`  (\n" +
-                "  `id` int(0) NOT NULL AUTO_INCREMENT,\n" +
+                "  `id` varchar(255) NOT NULL ,\n" +
                 "  `name` varchar(255) NOT NULL,\n" +
-                "  `device_id` int(0) NOT NULL,\n" +
+                "  `device_id` varchar(255) NOT NULL,\n" +
                 "  `slave_id` int(0) NOT NULL,\n" +
                 "  `function_code` tinyint(0) NOT NULL,\n" +
                 "  `register_start` int(0) NOT NULL,\n" +
@@ -91,7 +91,7 @@ public class DatabaseManager {
 
         String metricsDataTable = "CREATE TABLE IF NOT EXISTS `metrics_data`  (\n" +
                 "  `id` int(0) NOT NULL AUTO_INCREMENT,\n" +
-                "  `metric_id` int(0) NOT NULL,\n" +
+                "  `metric_id` varchar(255) NOT NULL,\n" +
                 "  `value` double NOT NULL,\n" +
                 "  `timestamp` timestamp NOT NULL,\n" +
                 "   CONSTRAINT fk_metrics_data__metrics\n" +

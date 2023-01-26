@@ -76,10 +76,10 @@ public class Migration2 implements DatabaseMigration {
     @ToString
     static class Metric_v1_1 {
 
-        private int id;
+        private String id;
         @NonNull
         private String name;
-        private int deviceId;
+        private String deviceId;
         private int slaveId;
         private byte functionCode;
         private int registerStart;
@@ -90,8 +90,8 @@ public class Migration2 implements DatabaseMigration {
 
         public static ResultParser<Metric_v1_1> parser() {
             return resultSet -> {
-                int id = resultSet.getInt("id");
-                int deviceId = resultSet.getInt("device_id");
+                String id = resultSet.getString("id");
+                String deviceId = resultSet.getString("device_id");
                 String name = resultSet.getString("name");
                 int slaveId = resultSet.getInt("slave_id");
                 byte functionCode = resultSet.getByte("function_code");
@@ -114,18 +114,18 @@ public class Migration2 implements DatabaseMigration {
 
         private int id;
         @NonNull
-        private int metricId;
+        private String metricId;
         @NonNull
         private byte[] value;
         @NonNull
         private Timestamp timestamp;
 
-        public static StatementProvider selectDataByMetricProvider(int metricId) {
+        public static StatementProvider selectDataByMetricProvider(String metricId) {
             return connection -> {
                 PreparedStatement statement = connection.prepareStatement(
                         "SELECT * FROM metrics_data WHERE metric_id = ?"
                 );
-                statement.setInt(1, metricId);
+                statement.setString(1, metricId);
                 return statement;
             };
         }
@@ -133,7 +133,7 @@ public class Migration2 implements DatabaseMigration {
         public static ResultParser<MetricData_v1_1> parser() {
             return resultSet -> {
                 int id = resultSet.getInt("id");
-                int metricId = resultSet.getInt("metric_id");
+                String metricId = resultSet.getString("metric_id");
                 byte[] value = resultSet.getBytes("value");
                 Timestamp timestamp = resultSet.getTimestamp("timestamp");
 
