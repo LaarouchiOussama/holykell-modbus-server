@@ -51,7 +51,7 @@ Before continuing, please configure your environment (port, database, ...) by fo
 
 Start the server
 
-    java -jar modbus-server.jar
+    java -jar target/modbus-server-2.2.2.jar
 
 Upon launching the server, if the database does not exist, the server creates one.
 
