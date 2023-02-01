@@ -78,7 +78,7 @@ public class DatabaseManager {
                     "created timestamp DEFAULT NOW(),\n"+
                     "updated timestamp DEFAULT NOW(),\n"+
                     "FOREIGN KEY (asset_id) REFERENCES assets(id),\n"+
-                    "FOREIGN KEY (parent_device) REFERENCES devices(id) ON DELETE CASCADE,\n"+
+                    "FOREIGN KEY (parent_device) REFERENCES devices(id) ON DELETE CASCADE\n"+
                 ");";
         query(StatementProvider.raw(devicesTable));
 
@@ -97,7 +97,7 @@ public class DatabaseManager {
                     "data_format varchar(255),\n"+
                     "created timestamp DEFAULT NOW(),\n"+
                     "updated timestamp DEFAULT NOW(),\n"+
-                    "FOREIGN KEY (device_id) REFERENCES devices(id) ON DELETE CASCADE,\n"+
+                    "FOREIGN KEY (device_id) REFERENCES devices(id) ON DELETE CASCADE\n"+
                 ");";
         query(StatementProvider.raw(metricsTable));
 
