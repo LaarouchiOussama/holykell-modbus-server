@@ -41,7 +41,7 @@ public class Main {
         ModbusManager modbusManager;
         try {
             DatabaseManager databaseManager = new DatabaseManager();
-            databaseManager.tryInitialize();
+            //databaseManager.tryInitialize();
 
             modbusManager = new ModbusManager(databaseManager);
         } catch (SQLException e) {
