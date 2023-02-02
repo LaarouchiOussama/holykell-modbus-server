@@ -39,14 +39,14 @@ public class Main {
         }
 
         ModbusManager modbusManager;
-        //try {
+        try {
             DatabaseManager databaseManager = new DatabaseManager();
-            //databaseManager.tryInitialize();
+            databaseManager.tryInitialize();
 
             modbusManager = new ModbusManager(databaseManager);
-        //} catch (SQLException e) {
-        //    throw new RuntimeException("Failed to start Modbus Server:", e);
-        //}
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to start Modbus Server:", e);
+        }
 
         try {
             int port = ConfigManager.getInstance().getIntProperty("server.port");
