@@ -246,7 +246,7 @@ public class TCPMasterConnection {
      * Closes this <tt>TCPMasterConnection</tt>.
      */
     public void close() {
-        logger.trace("TCPMasterConnection::close() - connected = %s".formatted(connected));
+        logger.trace("TCPMasterConnection::close() - connected = " + connected);
         if (connected) {
             try {
                 transport.close();
