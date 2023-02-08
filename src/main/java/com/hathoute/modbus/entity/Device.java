@@ -33,7 +33,7 @@ public class Device {
     }
 
     public void addMetric(Metric metric) {
-        if(metric.getDeviceId() != this.id) {
+        if(metric.getDeviceId().equals(this.id)) {
             throw new IllegalStateException("Device id mismatch: metric.deviceId = " + metric.getDeviceId()
                     + " and this.id = " + this.id);
         }
