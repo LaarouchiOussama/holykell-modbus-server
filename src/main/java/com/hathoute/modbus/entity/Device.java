@@ -12,7 +12,7 @@ import java.util.List;
 public class Device {
 
     @Getter @Setter
-    private String id;
+    private int id;
     @NonNull
     @Getter @Setter
     private String serialId;
@@ -21,7 +21,7 @@ public class Device {
     private String name;
     private List<Metric> metrics;
 
-    public Device(String id, @NonNull String serialId, @NonNull String name) {
+    public Device(int id, @NonNull String serialId, @NonNull String name) {
         this.id = id;
         this.serialId = serialId;
         this.name = name;
@@ -33,7 +33,7 @@ public class Device {
     }
 
     public void addMetric(Metric metric) {
-        if(metric.getDeviceId().equals(this.id)) {
+        if(metric.getDeviceId() != this.id) {
             throw new IllegalStateException("Device id mismatch: metric.deviceId = " + metric.getDeviceId()
                     + " and this.id = " + this.id);
         }
@@ -47,19 +47,19 @@ public class Device {
         );
     }
 
-    public static StatementProvider queryDeviceProvider(String deviceId) {
+    public static StatementProvider queryDeviceProvider(int deviceId) {
         return connection -> {
             PreparedStatement statement = connection.prepareStatement(
                     "SELECT * FROM devices WHERE id = ?"
             );
-            statement.setString(1, deviceId);
+            statement.setInt(1, deviceId);
             return statement;
         };
     }
 
     public static ResultParser<Device> parser() {
         return resultSet -> {
-            String id = resultSet.getString("id");
+            int id = resultSet.getInt("id");
             String serialId = resultSet.getString("serial_id");
             String name = resultSet.getString("name");
 

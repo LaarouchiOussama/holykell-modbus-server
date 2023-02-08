@@ -153,7 +153,7 @@ public class ModbusManager {
 
                     // Get existing device and check metrics
                     final Device existing = devicesBySerialId.get(device.getSerialId());
-                    final Map<String, Metric> existingMetrics = existing.getMetrics().stream()
+                    final Map<Integer, Metric> existingMetrics = existing.getMetrics().stream()
                         .collect(Collectors.toMap(Metric::getId, x -> x));
 
                     boolean modified = false;
