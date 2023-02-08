@@ -15,10 +15,10 @@ import java.util.Objects;
 @ToString
 public class Metric {
 
-    private int id;
+    private String id;
     @NonNull
     private String name;
-    private int deviceId;
+    private String deviceId;
     private int slaveId;
     private byte functionCode;
     private int registerStart;
@@ -28,20 +28,20 @@ public class Metric {
     private int refreshRate;
     private String unit;
 
-    public static StatementProvider selectMetricByDeviceProvider(int deviceId) {
+    public static StatementProvider selectMetricByDeviceProvider(String deviceId) {
         return connection -> {
             PreparedStatement statement = connection.prepareStatement(
                     "SELECT * FROM metrics WHERE device_id = ?"
             );
-            statement.setInt(1, deviceId);
+            statement.setString(1, deviceId);
             return statement;
         };
     }
 
     public static ResultParser<Metric> parser() {
         return resultSet -> {
-            int id = resultSet.getInt("id");
-            int deviceId = resultSet.getInt("device_id");
+            String id = resultSet.getString("id");
+            String deviceId = resultSet.getString("device_id");
             String name = resultSet.getString("name");
             int slaveId = resultSet.getInt("slave_id");
             byte functionCode = resultSet.getByte("function_code");

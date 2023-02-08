@@ -12,7 +12,7 @@ import java.util.List;
 public class Device {
 
     @Getter @Setter
-    private int id;
+    private String id;
     @NonNull
     @Getter @Setter
     private String serialId;
@@ -21,7 +21,7 @@ public class Device {
     private String name;
     private List<Metric> metrics;
 
-    public Device(int id, @NonNull String serialId, @NonNull String name) {
+    public Device(String id, @NonNull String serialId, @NonNull String name) {
         this.id = id;
         this.serialId = serialId;
         this.name = name;
@@ -47,19 +47,19 @@ public class Device {
         );
     }
 
-    public static StatementProvider queryDeviceProvider(int deviceId) {
+    public static StatementProvider queryDeviceProvider(String deviceId) {
         return connection -> {
             PreparedStatement statement = connection.prepareStatement(
                     "SELECT * FROM devices WHERE id = ?"
             );
-            statement.setInt(1, deviceId);
+            statement.setString(1, deviceId);
             return statement;
         };
     }
 
     public static ResultParser<Device> parser() {
         return resultSet -> {
-            int id = resultSet.getInt("id");
+            String id = resultSet.getString("id");
             String serialId = resultSet.getString("serial_id");
             String name = resultSet.getString("name");
 

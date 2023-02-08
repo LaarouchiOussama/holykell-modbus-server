@@ -15,13 +15,13 @@ public class MetricData {
 
     private int id;
     @NonNull
-    private int metricId;
+    private String metricId;
     @NonNull
     private double value;
     @NonNull
     private Timestamp timestamp;
 
-    public static StatementProvider selectDataByMetricProvider(int metricId) {
+    public static StatementProvider selectDataByMetricProvider(String metricId) {
         return connection -> {
             PreparedStatement statement = connection.prepareStatement(
                     "SELECT * FROM metrics_data WHERE metric_id = ?"
@@ -37,7 +37,7 @@ public class MetricData {
                     "INSERT INTO metrics_data(metric_id, value, timestamp) " +
                             "VALUES (?, ?, ?);"
             );
-            statement.setInt(1, this.metricId);
+            statement.setString(1, this.metricId);
             statement.setDouble(2, this.value);
             statement.setTimestamp(3, this.timestamp);
 
@@ -48,7 +48,7 @@ public class MetricData {
     public static ResultParser<MetricData> parser() {
         return resultSet -> {
             int id = resultSet.getInt("id");
-            int metricId = resultSet.getInt("metric_id");
+            String metricId = resultSet.getString("metric_id");
             double value = resultSet.getDouble("value");
             Timestamp timestamp = resultSet.getTimestamp("timestamp");
 
