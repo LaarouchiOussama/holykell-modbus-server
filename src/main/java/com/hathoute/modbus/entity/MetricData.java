@@ -26,7 +26,7 @@ public class MetricData {
             PreparedStatement statement = connection.prepareStatement(
                     "SELECT * FROM metrics_data WHERE metric_id = ?"
             );
-            statement.setInt(1, metricId);
+            statement.setString(1, metricId);
             return statement;
         };
     }
