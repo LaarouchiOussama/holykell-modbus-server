@@ -98,11 +98,11 @@ public class ModbusConnectionThread extends Thread {
                     final int read = is.read(tail);
                     logger.debug("Bytes read: {}, size: {}", tail, read);
                 }
-
                 final byte[] bytes = handler.execute(master);
                 final double value = parser.parse(bytes);
                 final MetricData data = new MetricData(metric.getId(), value,
                     Timestamp.from(Instant.now()));
+                logger.debug("Saving Metric Data ...'");
                 modbusManager.saveMetricData(data);
 
                 if (ConfigManager.getInstance().getBooleanProperty("debug.show_value")) {

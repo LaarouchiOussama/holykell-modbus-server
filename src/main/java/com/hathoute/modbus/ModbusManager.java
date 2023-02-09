@@ -91,6 +91,7 @@ public class ModbusManager {
         ioExecutor.execute(() -> {
             try {
                 databaseManager.query(data.insertDataProvider());
+                logger.trace("Metric Data Saved");
             } catch (final SQLException e) {
                 logger.error("Error while saving metric data: ", e);
             }
