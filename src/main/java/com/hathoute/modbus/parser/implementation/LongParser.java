@@ -15,7 +15,7 @@ public class LongParser extends AbstractParser {
     }
 
     @Override
-    public long parse(byte[] value) throws ByteLengthMismatchException {
+    public double parse(byte[] value) throws ByteLengthMismatchException {
         ByteBuffer byteBuffer = byteBufferSupplier.get(value);
         return byteBuffer.getLong();
     }

@@ -18,6 +18,7 @@ package com.ghgande.j2mod.modbus.msg;
 import com.ghgande.j2mod.modbus.Modbus;
 import com.ghgande.j2mod.modbus.msg.ReadFileRecordResponse.RecordResponse;
 import com.ghgande.j2mod.modbus.net.AbstractModbusListener;
+import com.ghgande.j2mod.modbus.procimg.Record;
 import com.ghgande.j2mod.modbus.procimg.*;
 
 import java.io.DataInput;
